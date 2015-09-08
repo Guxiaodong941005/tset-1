@@ -26,7 +26,7 @@
     
     NSLog(@"修改master");
     
-    NSLog(@"3.1");
+ 
     // Do any additional setup after loading the view, typically from a nib.
 }
 
