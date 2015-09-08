@@ -22,7 +22,7 @@
     NSLog(@"user2");
 
     NSLog(@"master1");
-
+    NSLog(@"gxd 1");
     // Do any additional setup after loading the view, typically from a nib.
 }
 
