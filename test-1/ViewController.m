@@ -23,6 +23,10 @@
 
     NSLog(@"master1");
     NSLog(@"gxd 1");
+    
+    
+    
+    NSLog(@"3.1");
     // Do any additional setup after loading the view, typically from a nib.
 }
 
