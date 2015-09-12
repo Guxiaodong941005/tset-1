@@ -26,9 +26,16 @@
     
     NSLog(@"修改master");
     
+<<<<<<< HEAD
     NSLog(@"add 3.2");
       NSLog(@"2 add 3.2");
  
+=======
+    
+    NSLog(@"3.1");
+    
+    NSLog(@"修改3.1版本bug");
+>>>>>>> 19eb087ce375437f389baa433613c36cd7088997
     // Do any additional setup after loading the view, typically from a nib.
 }
 
