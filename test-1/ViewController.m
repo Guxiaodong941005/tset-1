@@ -27,6 +27,8 @@
     
     
     NSLog(@"3.1");
+    
+    NSLog(@"修改3.1版本bug");
     // Do any additional setup after loading the view, typically from a nib.
 }
 
