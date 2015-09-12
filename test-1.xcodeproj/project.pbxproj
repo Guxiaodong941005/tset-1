@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E84CE3D31BA3F355002730DD /* addThree-one.m in Sources */ = {isa = PBXBuildFile; fileRef = E84CE3D21BA3F355002730DD /* addThree-one.m */; };
 		E8C1DAFB1B9EFCFC00D3C47E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C1DAFA1B9EFCFC00D3C47E /* main.m */; };
 		E8C1DAFE1B9EFCFC00D3C47E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C1DAFD1B9EFCFC00D3C47E /* AppDelegate.m */; };
 		E8C1DB011B9EFCFC00D3C47E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C1DB001B9EFCFC00D3C47E /* ViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E84CE3D11BA3F355002730DD /* addThree-one.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "addThree-one.h"; sourceTree = "<group>"; };
+		E84CE3D21BA3F355002730DD /* addThree-one.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "addThree-one.m"; sourceTree = "<group>"; };
 		E8C1DAF51B9EFCFC00D3C47E /* test-1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "test-1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C1DAF91B9EFCFC00D3C47E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8C1DAFA1B9EFCFC00D3C47E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 				E8C1DB051B9EFCFC00D3C47E /* Images.xcassets */,
 				E8C1DB071B9EFCFC00D3C47E /* LaunchScreen.xib */,
 				E8C1DAF81B9EFCFC00D3C47E /* Supporting Files */,
+				E84CE3D11BA3F355002730DD /* addThree-one.h */,
+				E84CE3D21BA3F355002730DD /* addThree-one.m */,
 			);
 			path = "test-1";
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8C1DB011B9EFCFC00D3C47E /* ViewController.m in Sources */,
+				E84CE3D31BA3F355002730DD /* addThree-one.m in Sources */,
 				E8C1DAFE1B9EFCFC00D3C47E /* AppDelegate.m in Sources */,
 				E8C1DAFB1B9EFCFC00D3C47E /* main.m in Sources */,
 			);
@@ -418,6 +424,7 @@
 				E8C1DB1A1B9EFCFC00D3C47E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E8C1DB1B1B9EFCFC00D3C47E /* Build configuration list for PBXNativeTarget "test-1Tests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +433,7 @@
 				E8C1DB1D1B9EFCFC00D3C47E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
