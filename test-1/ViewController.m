@@ -27,6 +27,7 @@
     NSLog(@"修改master");
     
     NSLog(@"add 3.2");
+      NSLog(@"2 add 3.2");
  
     // Do any additional setup after loading the view, typically from a nib.
 }
