@@ -9,7 +9,7 @@
 #import "HistoryViewCell.h"
 CGFloat heightForCell = 35;
 @interface HistoryViewCell ()
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 
 @end
 @implementation HistoryViewCell
@@ -21,10 +21,19 @@ CGFloat heightForCell = 35;
 }
 
 - (void)setKeyword:(NSString *)keyword {
+    if (keyword.length > 6) {
+       
+        self.titleLabel.font = [UIFont systemFontOfSize:11];
+    }if (keyword.length > 8) {
+         self.titleLabel.font = [UIFont systemFontOfSize:9];
+    }
+    
     _keyword = keyword;
     _titleLabel.text = _keyword;
     [self layoutIfNeeded];
     [self updateConstraintsIfNeeded];
+    
+   
 }
 -(void)setColor:(UIColor *)color{
 
@@ -36,7 +45,7 @@ CGFloat heightForCell = 35;
 }
 
 - (CGSize)sizeForCell {
-    //宽度加 heightForCell 为了两边圆角。
+   
     return CGSizeMake([_titleLabel sizeThatFits:CGSizeMake(MAXFLOAT, MAXFLOAT)].width + heightForCell, heightForCell);
 }
 @end

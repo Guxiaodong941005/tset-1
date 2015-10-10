@@ -11,5 +11,6 @@
 @interface HistoryViewCell : UICollectionViewCell
 @property (nonatomic, copy) NSString *keyword;
 @property (strong , nonatomic) UIColor * color;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 - (CGSize)sizeForCell;
 @end

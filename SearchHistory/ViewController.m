@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     _data = [NSMutableArray arrayWithArray:@[@"测试数据",@"云标签",@"历史记录",@"测试",@"妈妈",@"机智的手哥",@"测",@"云标",@"历史记",@"试",@"妈妈长",@"机智哥"]];
+     _data = [NSMutableArray arrayWithArray:@[@"测试数据云标",@"云标签",@"历史记录",@"测试",@"妈妈",@"机智的手哥",@"测",@"云标",@"历史记",@"试",@"妈妈长",@"机智哥"]];
     
 //    _userChooseArr = [NSMutableArray arrayWithArray:@[@"机智的手哥",@"测试数据",@"云标签"]];
     _userChooseArr = [NSMutableArray array];
@@ -167,8 +167,12 @@
     }
    
     
+    CGSize t_size = [_cell sizeForCell];
     
-    return [_cell sizeForCell];
+    if (t_size.width > 99) {
+        _cell.titleLabel.font = [UIFont systemFontOfSize:6];
+    }
+    return CGSizeMake(99.0f, 35.f);
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (collectionView == _collectionViewWithUserChoose) {
