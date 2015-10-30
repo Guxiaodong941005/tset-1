@@ -21,15 +21,19 @@ CGFloat heightForCell = 35;
 }
 
 - (void)setKeyword:(NSString *)keyword {
-    if (keyword.length > 6) {
-       
-        self.titleLabel.font = [UIFont systemFontOfSize:11];
-    }if (keyword.length > 8) {
-         self.titleLabel.font = [UIFont systemFontOfSize:9];
-    }
+//    if (keyword.length <= 6) {
+//        self.titleLabel.font = [UIFont systemFontOfSize:14];
+//    }else if (keyword.length > 6) {
+//       
+//        self.titleLabel.font = [UIFont systemFontOfSize:11];
+//    }if (keyword.length > 8) {
+//         self.titleLabel.font = [UIFont systemFontOfSize:9];
+//    }
+    
     
     _keyword = keyword;
     _titleLabel.text = _keyword;
+   _titleLabel.adjustsFontSizeToFitWidth = YES;
     [self layoutIfNeeded];
     [self updateConstraintsIfNeeded];
     
@@ -46,6 +50,8 @@ CGFloat heightForCell = 35;
 
 - (CGSize)sizeForCell {
    
-    return CGSizeMake([_titleLabel sizeThatFits:CGSizeMake(MAXFLOAT, MAXFLOAT)].width + heightForCell, heightForCell);
+    
+    
+    return CGSizeMake(99.0f,35.0f);
 }
 @end

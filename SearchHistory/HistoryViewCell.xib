@@ -13,8 +13,8 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="190" height="50"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRn-Z2-wdl">
-                        <rect key="frame" x="74" y="14" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRn-Z2-wdl">
+                        <rect key="frame" x="7" y="16" width="176" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -24,7 +24,9 @@
             </view>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="kRn-Z2-wdl" secondAttribute="centerX" id="0Bu-GU-rv1"/>
+                <constraint firstAttribute="trailing" secondItem="kRn-Z2-wdl" secondAttribute="trailing" constant="7" id="Qpv-by-Ya4"/>
                 <constraint firstAttribute="centerY" secondItem="kRn-Z2-wdl" secondAttribute="centerY" id="he9-5H-b5a"/>
+                <constraint firstItem="kRn-Z2-wdl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="7" id="v0c-wH-6tu"/>
             </constraints>
             <size key="customSize" width="190" height="50"/>
             <connections>

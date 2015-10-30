@@ -16,6 +16,9 @@
 		CC95D0791B8CC2EB007EBDE4 /* SearchHistoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC95D0781B8CC2EB007EBDE4 /* SearchHistoryTests.m */; };
 		CC95D0851B8CC357007EBDE4 /* HistoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC95D0831B8CC357007EBDE4 /* HistoryViewCell.m */; };
 		CC95D0861B8CC357007EBDE4 /* HistoryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC95D0841B8CC357007EBDE4 /* HistoryViewCell.xib */; };
+		E897BCD11BCDF41500FC75D1 /* towTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E897BCD01BCDF41500FC75D1 /* towTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E897BCD41BCDF42A00FC75D1 /* detailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E897BCD31BCDF42A00FC75D1 /* detailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E897BCD91BCE36AD00FC75D1 /* SuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E897BCD81BCE36AD00FC75D1 /* SuperViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,12 @@
 		CC95D0821B8CC357007EBDE4 /* HistoryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewCell.h; sourceTree = "<group>"; };
 		CC95D0831B8CC357007EBDE4 /* HistoryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewCell.m; sourceTree = "<group>"; };
 		CC95D0841B8CC357007EBDE4 /* HistoryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewCell.xib; sourceTree = "<group>"; };
+		E897BCCF1BCDF41500FC75D1 /* towTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = towTableViewController.h; sourceTree = "<group>"; };
+		E897BCD01BCDF41500FC75D1 /* towTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = towTableViewController.m; sourceTree = "<group>"; };
+		E897BCD21BCDF42A00FC75D1 /* detailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailViewController.h; sourceTree = "<group>"; };
+		E897BCD31BCDF42A00FC75D1 /* detailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailViewController.m; sourceTree = "<group>"; };
+		E897BCD71BCE36AD00FC75D1 /* SuperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperViewController.h; sourceTree = "<group>"; };
+		E897BCD81BCE36AD00FC75D1 /* SuperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +106,12 @@
 				CC95D0691B8CC2EB007EBDE4 /* Images.xcassets */,
 				CC95D06B1B8CC2EB007EBDE4 /* LaunchScreen.xib */,
 				CC95D05C1B8CC2EB007EBDE4 /* Supporting Files */,
+				E897BCCF1BCDF41500FC75D1 /* towTableViewController.h */,
+				E897BCD01BCDF41500FC75D1 /* towTableViewController.m */,
+				E897BCD21BCDF42A00FC75D1 /* detailViewController.h */,
+				E897BCD31BCDF42A00FC75D1 /* detailViewController.m */,
+				E897BCD71BCE36AD00FC75D1 /* SuperViewController.h */,
+				E897BCD81BCE36AD00FC75D1 /* SuperViewController.m */,
 			);
 			path = SearchHistory;
 			sourceTree = "<group>";
@@ -229,10 +244,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E897BCD91BCE36AD00FC75D1 /* SuperViewController.m in Sources */,
 				CC95D0651B8CC2EB007EBDE4 /* ViewController.m in Sources */,
+				E897BCD11BCDF41500FC75D1 /* towTableViewController.m in Sources */,
 				CC95D0851B8CC357007EBDE4 /* HistoryViewCell.m in Sources */,
 				CC95D0621B8CC2EB007EBDE4 /* AppDelegate.m in Sources */,
 				CC95D05F1B8CC2EB007EBDE4 /* main.m in Sources */,
+				E897BCD41BCDF42A00FC75D1 /* detailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
