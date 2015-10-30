@@ -23,7 +23,7 @@
 @end
 
 @implementation ViewController
-
+#pragma mark -- viewLife
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -53,13 +53,17 @@
 
     // Optional Delegate
     self.swipeableView.delegate = self;
-}
-
-- (void)viewDidLayoutSubviews {
-    // Required Data Source
     self.swipeableView.dataSource = self;
 }
 
+- (void)viewDidLayoutSubviews {
+  
+   
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [self.swipeableView reloadData];
+
+}
 #pragma mark - Action
 
 - (IBAction)swipeLeftButtonAction:(UIButton *)sender {
@@ -92,9 +96,10 @@
     self.loadCardFromXib = buttonIndex == 1;
 
     self.colorIndex = 0;
-
-    [self.swipeableView discardAllSwipeableViews];
-    [self.swipeableView loadNextSwipeableViewsIfNeeded];
+ [self.swipeableView reloadData];
+    
+//    [self.swipeableView discardAllSwipeableViews];
+//    [self.swipeableView loadNextSwipeableViewsIfNeeded];
 }
 
 #pragma mark - ZLSwipeableViewDelegate
@@ -134,10 +139,6 @@
 
 - (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView {
     if (self.colorIndex < self.colors.count) {
-        CardView *view = [[CardView alloc] initWithFrame:swipeableView.bounds];
-        view.backgroundColor = [self colorForName:self.colors[self.colorIndex]];
-        self.colorIndex++;
-
 
             CardView *contentView =
                 [[[NSBundle mainBundle] loadNibNamed:@"CardContentView"
@@ -146,30 +147,8 @@
             contentView.translatesAutoresizingMaskIntoConstraints = NO;
         contentView.g_nickNameLable.text = [NSString stringWithFormat:@" ++ %lu ++ ",(unsigned long)self.colorIndex];
         contentView.g_contentLable.text = @"fsadkjfijabgiabgifabgijafbgijafbgijfdabgijbgjbseigbijabgijadbgijadgijahighaighaighiahgiaudhgiuahgiahiughaigha";
-            [view addSubview:contentView];
 
-//             This is important:
-//             https://github.com/zhxnlai/ZLSwipeableView/issues/9
-            NSDictionary *metrics = @{
-                @"height" : @(view.bounds.size.height),
-                @"width" : @(view.bounds.size.width)
-            };
-            NSDictionary *views = NSDictionaryOfVariableBindings(contentView);
-            [view addConstraints:
-                      [NSLayoutConstraint
-                          constraintsWithVisualFormat:@"H:|[contentView(width)]"
-                                              options:0
-                                              metrics:metrics
-                                                views:views]];
-            [view addConstraints:[NSLayoutConstraint
-                                     constraintsWithVisualFormat:
-                                         @"V:|[contentView(height)]"
-                                                         options:0
-                                                         metrics:metrics
-                                                           views:views]];
-       
-
-        return view;
+        return contentView;
     }else{
         self.colorIndex = 0;
         
@@ -189,6 +168,7 @@
         [NSString stringWithFormat:@"flat%@Color", sanitizedName];
     Class colorClass = [UIColor class];
     return [colorClass performSelector:NSSelectorFromString(selectorString)];
+    
 }
 
 @end

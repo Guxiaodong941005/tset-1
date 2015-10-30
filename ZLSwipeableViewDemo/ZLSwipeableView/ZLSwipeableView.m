@@ -8,6 +8,7 @@
 
 #import "ZLSwipeableView.h"
 #import "ZLPanGestureRecognizer.h"
+#import "CardView.h"
 #define MAINSCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 #define MAINSCREENHEIGTH  [UIScreen mainScreen].bounds.size.height
 const NSUInteger ZLPrefetchedViewsNumber = 1;
@@ -127,9 +128,13 @@ ZLDirectionVectorToSwipeableViewDirection(CGVector directionVector) {
 
 - (void)setDataSource:(id<ZLSwipeableViewDataSource>)dataSource {
     _dataSource = dataSource;
-    [self loadNextSwipeableViewsIfNeeded];
+//    [self loadNextSwipeableViewsIfNeeded];
 }
+- (void)reloadData{
+    [self discardAllSwipeableViews];
+    [self loadNextSwipeableViewsIfNeeded];
 
+}
 #pragma mark - DataSource
 
 - (void)discardAllSwipeableViews {
@@ -180,12 +185,12 @@ ZLDirectionVectorToSwipeableViewDirection(CGVector directionVector) {
         NSUInteger numSwipeableViews = self.containerView.subviews.count;
         if (numSwipeableViews >= 1) {
             
-            CGPoint t_center = self.containerView.subviews[0].center;
-            
-//            self.containerView.subviews[0].center = CGPointMake(0, 100);
-            CGPoint t_center1 = self.swipeableViewsCenter;
-            
-            CGRect t_rect = self.bounds;
+//            CGPoint t_center = self.containerView.subviews[0].center;
+//            
+////            self.containerView.subviews[0].center = CGPointMake(0, 100);
+//            CGPoint t_center1 = self.swipeableViewsCenter;
+//            
+//            CGRect t_rect = self.bounds;
             [self.animator removeBehavior:self.swipeableViewSnapBehavior];
             
            
@@ -491,9 +496,9 @@ ZLDirectionVectorToSwipeableViewDirection(CGVector directionVector) {
 
     self.anchorView = nil;
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     
-          [self loadNextSwipeableViewsIfNeeded];
+          [self loadNextSwipeableViewsIfNeededWithDirection:direction];
     });
     
   
@@ -570,12 +575,20 @@ int signum(CGFloat n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
                    collisionSize.width, collisionSize.height);
     return collisionRect;
 }
-
 - (UIView *)nextSwipeableView {
     UIView *nextView = nil;
     if ([self.dataSource
             respondsToSelector:@selector(nextViewForSwipeableView:)]) {
-        nextView = [self.dataSource nextViewForSwipeableView:self];
+        
+        UIView * t_view = [self.dataSource nextViewForSwipeableView:self];
+        if (t_view) {
+              nextView = [self getnexrViewForSwipeableViewFromInit:t_view];
+        }else{
+            return nextView;
+        }
+      
+        
+        
     }
     if (nextView) {
         [nextView
@@ -608,7 +621,7 @@ int signum(CGFloat n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
 - (UIView *)topSwipeableView {
     return self.containerView.subviews.lastObject;
 }
-#pragma mark -- gxd getUserHandlePanDirection
+#pragma mark -- GXD add +++  gxd getUserHandlePanDirection
 -(void)getUserHandlePanDirection:(ZLSwipeableViewDirection )t_direction{
     switch (t_direction) {
         case ZLSwipeableViewDirectionLeft:
@@ -644,5 +657,55 @@ int signum(CGFloat n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [t_lable removeFromSuperview];
     });
+}
+#pragma mark  获取手势方向
+- (void)loadNextSwipeableViewsIfNeededWithDirection:(ZLSwipeableViewDirection )t_direction{
+    //    1. 获取用户手势方向
+    self.g_UserHandlePanDirection = t_direction;
+    NSInteger numViews = self.containerView.subviews.count;
+    NSMutableSet *newViews = [NSMutableSet set];
+    for (NSInteger i = numViews; i < ZLPrefetchedViewsNumber; i++) {
+        UIView *nextView = [self nextSwipeableView];
+        if (nextView) {
+            [self.containerView addSubview:nextView];
+            [self.containerView sendSubviewToBack:nextView];
+            nextView.center = self.swipeableViewsCenterInitial;
+            [newViews addObject:nextView];
+            
+        }
+    }
+    
+    
+    [self animateSwipeableViewsIfNeeded];
+    
+    
+}
+// 初始化即将更新到主页面的视图
+-(UIView *)getnexrViewForSwipeableViewFromInit:(UIView *)t_view{
+  CardView *view = [[CardView alloc] initWithFrame:self.bounds];
+    [view addSubview:t_view];
+    
+    //             This is important:
+    //             https://github.com/zhxnlai/ZLSwipeableView/issues/9
+    NSDictionary *metrics = @{
+                              @"height" : @(view.bounds.size.height),
+                              @"width" : @(view.bounds.size.width)
+                              };
+    NSDictionary *views = NSDictionaryOfVariableBindings(t_view);
+    [view addConstraints:
+     [NSLayoutConstraint
+      constraintsWithVisualFormat:@"H:|[t_view(width)]"
+      options:0
+      metrics:metrics
+      views:views]];
+    [view addConstraints:[NSLayoutConstraint
+                          constraintsWithVisualFormat:
+                          @"V:|[t_view(height)]"
+                          options:0
+                          metrics:metrics
+                          views:views]];
+    
+    return view;
+
 }
 @end
