@@ -10,7 +10,7 @@
 #import "ZLSwipeableView.h"
 #import "UIColor+FlatColors.h"
 #import "CardView.h"
-
+#import "IndexAndDirection.h"
 @interface ViewController () <ZLSwipeableViewDataSource,
                               ZLSwipeableViewDelegate, UIActionSheetDelegate>
 
@@ -138,20 +138,20 @@
 #pragma mark - ZLSwipeableViewDataSource
 
 - (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView {
-    if (self.colorIndex < self.colors.count) {
+    if (swipeableView.g_indexDirection.g_index < self.colors.count) {
 
             CardView *contentView =
                 [[[NSBundle mainBundle] loadNibNamed:@"CardContentView"
                                                owner:self
                                              options:nil] objectAtIndex:0];
             contentView.translatesAutoresizingMaskIntoConstraints = NO;
-        contentView.g_nickNameLable.text = [NSString stringWithFormat:@" ++ %lu ++ ",(unsigned long)self.colorIndex];
+        contentView.g_nickNameLable.text = [NSString stringWithFormat:@" ++ %ld ++ ",(long)swipeableView.g_indexDirection.g_index];
         contentView.g_contentLable.text = @"fsadkjfijabgiabgifabgijafbgijafbgijfdabgijbgjbseigbijabgijadbgijadgijahighaighaighiahgiaudhgiuahgiahiughaigha";
 
         return contentView;
     }else{
-        self.colorIndex = 0;
-        
+        swipeableView.g_indexDirection.g_index = 0;
+       
         [self.swipeableView discardAllSwipeableViews];
         [self.swipeableView loadNextSwipeableViewsIfNeeded];
     

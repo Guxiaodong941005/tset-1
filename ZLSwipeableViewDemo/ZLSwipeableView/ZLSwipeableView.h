@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "IndexAndDirection.h"
 typedef NS_ENUM(NSUInteger, ZLSwipeableViewDirection) {
     ZLSwipeableViewDirectionNone = 0,
     ZLSwipeableViewDirectionLeft = (1 << 0),
@@ -100,8 +100,10 @@ typedef NS_ENUM(NSUInteger, ZLSwipeableViewDirection) {
 
 /// The currently displayed top most view.
 @property (nonatomic, readonly) UIView *topSwipeableView;
-
+/// GXD add+++
 @property (assign , nonatomic ) ZLSwipeableViewDirection g_UserHandlePanDirection;
+
+@property (strong , nonatomic) IndexAndDirection * g_indexDirection;// 用户滑动视图基本信息（方向和序号）
 /// Discard all swipeable views on the screen.
 - (void)discardAllSwipeableViews;
 

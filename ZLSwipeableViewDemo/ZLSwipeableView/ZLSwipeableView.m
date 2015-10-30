@@ -50,7 +50,9 @@ ZLDirectionVectorToSwipeableViewDirection(CGVector directionVector) {
 // ContainerView
 @property (strong, nonatomic) UIView *reuseCoverContainerView;
 @property (strong, nonatomic) UIView *containerView;
+// GXD add+++
 @property (assign , nonatomic) CGPoint g_LocationRect;
+
 @end
 
 @implementation ZLSwipeableView
@@ -102,6 +104,7 @@ ZLDirectionVectorToSwipeableViewDirection(CGVector directionVector) {
     self.swipeableViewsCenterInitial =
         CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
     self.collisionRect = [self defaultCollisionRect];
+    self.g_indexDirection = [[IndexAndDirection alloc] init];
 }
 
 - (void)layoutSubviews {
@@ -132,7 +135,7 @@ ZLDirectionVectorToSwipeableViewDirection(CGVector directionVector) {
 }
 - (void)reloadData{
     [self discardAllSwipeableViews];
-    [self loadNextSwipeableViewsIfNeeded];
+    [self loadNextSwipeableViewsIfNeededWithDirection:ZLSwipeableViewDirectionNone];
 
 }
 #pragma mark - DataSource
@@ -475,7 +478,7 @@ ZLDirectionVectorToSwipeableViewDirection(CGVector directionVector) {
                          inDirection:direction];
     }
 
-        [self getUserHandlePanDirection:ZLDirectionVectorToSwipeableViewDirection(directionVector)];
+//        [self getUserHandlePanDirection:ZLDirectionVectorToSwipeableViewDirection(directionVector)];
     
     [self.animator removeBehavior:self.anchorViewAttachmentBehavior];
 
@@ -622,30 +625,40 @@ int signum(CGFloat n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
     return self.containerView.subviews.lastObject;
 }
 #pragma mark -- GXD add +++  gxd getUserHandlePanDirection
--(void)getUserHandlePanDirection:(ZLSwipeableViewDirection )t_direction{
+-(NSString *)getUserHandlePanDirection:(ZLSwipeableViewDirection )t_direction{
+    
+    NSString * t_str = nil;
     switch (t_direction) {
         case ZLSwipeableViewDirectionLeft:
             self.swipeableViewsCenterInitial = CGPointMake([UIScreen mainScreen].bounds.size.width, self.g_LocationRect.y);
-//            [self showUIAlertView:@""];
+            t_str = @"左";
+            self.g_indexDirection.g_index++;
             break;
         case ZLSwipeableViewDirectionRight:
             self.swipeableViewsCenterInitial = CGPointMake(0, self.g_LocationRect.y);
-            //            [self showUIAlertView:@""];
+            t_str = @"右";
+               self.g_indexDirection.g_index--;
             break;
         case ZLSwipeableViewDirectionDown:
             self.swipeableViewsCenterInitial = CGPointMake(self.g_LocationRect.x, 0);
-                        [self showUIAlertView:@"踩"];
+            t_str = @"上";
+            self.g_indexDirection.g_index++;
             break;
         case ZLSwipeableViewDirectionUp:
             
             self.swipeableViewsCenterInitial = CGPointMake(self.g_LocationRect.x,MAINSCREENHEIGTH);
-                        [self showUIAlertView:@"顶"];
+            t_str = @"下";
+            self.g_indexDirection.g_index++;
             break;
+        case ZLSwipeableViewDirectionNone:
+            t_str = nil;
+            self.swipeableViewsCenterInitial = CGPointMake(MAINSCREENWIDTH,0);
             
+            break;
         default:
             break;
     }
-
+    return t_str;
 
 }
 //// 弹出提示
@@ -660,8 +673,9 @@ int signum(CGFloat n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
 }
 #pragma mark  获取手势方向
 - (void)loadNextSwipeableViewsIfNeededWithDirection:(ZLSwipeableViewDirection )t_direction{
-    //    1. 获取用户手势方向
-    self.g_UserHandlePanDirection = t_direction;
+    //    1. 获取用户手势方向 以及 序号
+    self.g_indexDirection.g_direction = [self getUserHandlePanDirection:t_direction];
+  
     NSInteger numViews = self.containerView.subviews.count;
     NSMutableSet *newViews = [NSMutableSet set];
     for (NSInteger i = numViews; i < ZLPrefetchedViewsNumber; i++) {
@@ -708,4 +722,5 @@ int signum(CGFloat n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
     return view;
 
 }
+
 @end

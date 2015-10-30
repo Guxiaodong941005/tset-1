@@ -19,6 +19,7 @@
 		092F0F691A05DAF9007CDDCC /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 092F0F681A05DAF8007CDDCC /* CardView.m */; };
 		E82BA5971BE3116E0038F210 /* ZLPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E82BA5941BE3116E0038F210 /* ZLPanGestureRecognizer.m */; };
 		E82BA5981BE3116E0038F210 /* ZLSwipeableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E82BA5961BE3116E0038F210 /* ZLSwipeableView.m */; };
+		E8D110371BE35BD90021F0E5 /* IndexAndDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D110361BE35BD90021F0E5 /* IndexAndDirection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		E82BA5941BE3116E0038F210 /* ZLPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLPanGestureRecognizer.m; sourceTree = "<group>"; };
 		E82BA5951BE3116E0038F210 /* ZLSwipeableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLSwipeableView.h; sourceTree = "<group>"; };
 		E82BA5961BE3116E0038F210 /* ZLSwipeableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSwipeableView.m; sourceTree = "<group>"; };
+		E8D110351BE35BD90021F0E5 /* IndexAndDirection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexAndDirection.h; sourceTree = "<group>"; };
+		E8D110361BE35BD90021F0E5 /* IndexAndDirection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexAndDirection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,7 @@
 		092F0F301A05B474007CDDCC /* ZLSwipeableViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E8D110341BE35BBF0021F0E5 /* Model */,
 				E82BA5921BE3116E0038F210 /* ZLSwipeableView */,
 				092F0F631A05C9CA007CDDCC /* UIColor+FlatColors */,
 				092F0F351A05B474007CDDCC /* AppDelegate.h */,
@@ -156,6 +160,15 @@
 				E82BA5961BE3116E0038F210 /* ZLSwipeableView.m */,
 			);
 			path = ZLSwipeableView;
+			sourceTree = "<group>";
+		};
+		E8D110341BE35BBF0021F0E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E8D110351BE35BD90021F0E5 /* IndexAndDirection.h */,
+				E8D110361BE35BD90021F0E5 /* IndexAndDirection.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +276,7 @@
 			files = (
 				092F0F3A1A05B474007CDDCC /* ViewController.m in Sources */,
 				092F0F661A05C9CA007CDDCC /* UIColor+FlatColors.m in Sources */,
+				E8D110371BE35BD90021F0E5 /* IndexAndDirection.m in Sources */,
 				092F0F371A05B474007CDDCC /* AppDelegate.m in Sources */,
 				092F0F341A05B474007CDDCC /* main.m in Sources */,
 				092F0F691A05DAF9007CDDCC /* CardView.m in Sources */,
