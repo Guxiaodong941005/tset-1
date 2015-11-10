@@ -581,9 +581,9 @@ int signum(CGFloat n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
 - (UIView *)nextSwipeableView {
     UIView *nextView = nil;
     if ([self.dataSource
-            respondsToSelector:@selector(nextViewForSwipeableView:)]) {
+            respondsToSelector:@selector(nextViewForSwipeableView:andIndexAndDirection:)]) {
         
-        UIView * t_view = [self.dataSource nextViewForSwipeableView:self];
+        UIView * t_view = [self.dataSource nextViewForSwipeableView:self andIndexAndDirection:self.g_indexDirection];
         if (t_view) {
               nextView = [self getnexrViewForSwipeableViewFromInit:t_view];
         }else{
@@ -653,7 +653,7 @@ int signum(CGFloat n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
         case ZLSwipeableViewDirectionNone:
             t_str = nil;
             self.swipeableViewsCenterInitial = CGPointMake(MAINSCREENWIDTH,0);
-            
+           
             break;
         default:
             break;

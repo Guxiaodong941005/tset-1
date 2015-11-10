@@ -29,13 +29,13 @@
                         <constraint firstAttribute="height" constant="30" id="uDt-qo-9Gm"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n54-rd-qdk">
                     <rect key="frame" x="102" y="542" width="490" height="48"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -61,7 +61,7 @@
                 <outlet property="g_headImageView" destination="ef9-m7-Muh" id="gP0-kj-uOe"/>
                 <outlet property="g_nickNameLable" destination="hWS-9n-yFR" id="kpw-RX-zGI"/>
             </connections>
-            <point key="canvasLocation" x="193" y="352"/>
+            <point key="canvasLocation" x="452" y="351"/>
         </view>
     </objects>
 </document>

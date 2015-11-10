@@ -53,7 +53,7 @@ typedef NS_ENUM(NSUInteger, ZLSwipeableViewDirection) {
 @protocol ZLSwipeableViewDataSource <NSObject>
 
 @required
-- (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView;
+- (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView andIndexAndDirection:(IndexAndDirection *)indexAndDirection;
 
 @end
 
