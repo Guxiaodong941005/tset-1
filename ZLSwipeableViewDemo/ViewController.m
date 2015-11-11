@@ -98,15 +98,8 @@
                                        owner:self
                                      options:nil] objectAtIndex:0];
         contentView.translatesAutoresizingMaskIntoConstraints = NO;
-        contentView.g_nickNameLable.text = [self.g_dataArray[indexAndDirection.g_index] objectForKey:@"floor"];
-        contentView.g_contentLable.text = [self.g_dataArray[indexAndDirection.g_index] objectForKey:@"content"];
+        contentView.g_photo = _g_dataArray[indexAndDirection.g_index];
         
-      
-        [contentView.g_contentImageView sd_setImageWithURL:[self.g_dataArray[indexAndDirection.g_index] objectForKey:@"imageurl"] placeholderImage:[UIImage imageNamed:@"屏幕快照 2015-11-05 11.40.43.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-          
-            
-            
-        }];
         return contentView;
     }else{
         
@@ -169,8 +162,11 @@
         
         NSLog(@"%@",t_dict);
         
-        _g_dataArray = [t_dict objectForKey:@"data"];
-        
+        for (NSDictionary * dict in [t_dict objectForKey:@"data"]) {
+            photo * g_photo = [photo setdataWithDict:dict];
+            [_g_dataArray addObject:g_photo];
+        }
+     
     }
     return _g_dataArray;
 }

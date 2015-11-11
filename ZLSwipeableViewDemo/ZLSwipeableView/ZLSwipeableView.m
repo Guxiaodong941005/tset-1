@@ -9,8 +9,11 @@
 #import "ZLSwipeableView.h"
 #import "ZLPanGestureRecognizer.h"
 #import "CardView.h"
+#import "ProgressHUD.h"
 #define MAINSCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 #define MAINSCREENHEIGTH  [UIScreen mainScreen].bounds.size.height
+NSString * const zanMessage = @"赞";
+NSString * const caiMessage = @"踩";
 const NSUInteger ZLPrefetchedViewsNumber = 1;
 
 ZLSwipeableViewDirection
@@ -499,11 +502,13 @@ ZLDirectionVectorToSwipeableViewDirection(CGVector directionVector) {
 
     self.anchorView = nil;
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    self.g_indexDirection.g_direction = [self getUserHandlePanDirection:direction];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     
           [self loadNextSwipeableViewsIfNeededWithDirection:direction];
     });
-    
+
   
 }
 
@@ -641,13 +646,13 @@ int signum(CGFloat n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
             break;
         case ZLSwipeableViewDirectionDown:
             self.swipeableViewsCenterInitial = CGPointMake(self.g_LocationRect.x, 0);
-            t_str = @"上";
+            t_str = @"下";
             self.g_indexDirection.g_index++;
             break;
         case ZLSwipeableViewDirectionUp:
             
             self.swipeableViewsCenterInitial = CGPointMake(self.g_LocationRect.x,MAINSCREENHEIGTH);
-            t_str = @"下";
+            t_str = @"上";
             self.g_indexDirection.g_index++;
             break;
         case ZLSwipeableViewDirectionNone:
@@ -658,23 +663,37 @@ int signum(CGFloat n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
         default:
             break;
     }
+    // 弹出提示
+    if ([t_str isEqualToString:@"上"]) {
+        [self showMessage:zanMessage];
+        
+    }else if([t_str isEqualToString:@"下"]){
+        
+        [self showMessage:caiMessage];
+    }
+
+    
     return t_str;
 
 }
-//// 弹出提示
--(void)showUIAlertView:(NSString *)t_alert{
-    UILabel * t_lable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
-    t_lable.center = self.center;
-    t_lable.text = [NSString stringWithFormat:@"%@ 这张照片成功",t_alert];
-    [self addSubview:t_lable];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [t_lable removeFromSuperview];
-    });
+/**
+ *  弹出提示
+ *
+ *  @param t_meassage 提示内容
+ */
+-(void)showMessage:(NSString *)t_meassage
+{
+    if ([t_meassage isEqualToString:zanMessage]) {
+        [ProgressHUD showSuccess:@"赞这张照片！"];
+    }else{
+        [ProgressHUD showError:@"踩这张照片"];
+    }
 }
+
 #pragma mark  获取手势方向
 - (void)loadNextSwipeableViewsIfNeededWithDirection:(ZLSwipeableViewDirection )t_direction{
     //    1. 获取用户手势方向 以及 序号
-    self.g_indexDirection.g_direction = [self getUserHandlePanDirection:t_direction];
+    
   
     NSInteger numViews = self.containerView.subviews.count;
     NSMutableSet *newViews = [NSMutableSet set];

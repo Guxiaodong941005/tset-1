@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "photo.h"
+#import "IndexAndDirection.h"
 @interface CardView : UIView
 @property (strong, nonatomic) IBOutlet UIImageView *g_contentImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *g_headImageView;
@@ -15,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *g_nickNameLable;
 @property (strong, nonatomic) IBOutlet UILabel *g_contentLable;
 
-
+@property (strong , nonatomic) photo * g_photo;
+@property (strong , nonatomic) IndexAndDirection * iAd;
 @end
