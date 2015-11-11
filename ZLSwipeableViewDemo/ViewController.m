@@ -29,20 +29,8 @@
 #pragma mark - viewLife cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    self.colorIndex = 0;
-   
-
-    
-    
-    // Optional Delegate
     self.swipeableView.delegate = self;
     self.swipeableView.dataSource = self;
-}
-
-- (void)viewDidLayoutSubviews {
-  
-   
 }
 -(void)viewDidAppear:(BOOL)animated{
     [self.swipeableView reloadData];
@@ -65,15 +53,7 @@
     [self.swipeableView swipeTopViewToDown];
 }
 
-- (IBAction)reloadButtonAction:(UIButton *)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                 initWithTitle:@"Load Cards"
-                      delegate:self
-             cancelButtonTitle:@"Cancel"
-        destructiveButtonTitle:nil
-             otherButtonTitles:@"Programmatically", @"From Xib", nil];
-    [actionSheet showInView:self.view];
-}
+
 
 #pragma mark - UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet
