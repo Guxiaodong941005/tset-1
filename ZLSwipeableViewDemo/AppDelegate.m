@@ -8,7 +8,16 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+#import "RDVTabBarController.h"
+#import "RDVTabBarItem.h"
+#import "settingViewController.h"
+#import "myInfoViewController.h"
+#import "creatPhotoViewController.h"
+#import "mainViewController.h"
+#import "extendMothods.h"
+@interface AppDelegate (){
+    UIViewController * g_viewController;
+}
 
 @end
 
@@ -16,8 +25,59 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self setupViewControllers];
+    [self.window setRootViewController:g_viewController];
+    [self.window makeKeyAndVisible];
+    
+    [self firstFinishLaunch];
     // Override point for customization after application launch.
     return YES;
+}
+-(void)firstFinishLaunch{
+// 1.0 清除数据
+    WhichKind t_kind = isBOOL;
+    setNSUserDefaults(@"IsFirstLoadMainView", t_kind, @"0");
+
+}
+- (void)setupViewControllers {
+    UIViewController * firstViewController = [[mainViewController alloc] init];
+    UIViewController *firstNavigationController = [[UINavigationController alloc]
+                                                   initWithRootViewController:firstViewController];
+    firstViewController.title = @"动态";
+    UIViewController *secondViewController = [[myInfoViewController alloc] init];
+    UIViewController *secondNavigationController = [[UINavigationController alloc]
+                                                    initWithRootViewController:secondViewController];
+    secondViewController.title = @"创造动态";
+    UIViewController *thirdViewController = [[creatPhotoViewController alloc] init];
+    UIViewController *thirdNavigationController = [[UINavigationController alloc]
+                                                   initWithRootViewController:thirdViewController];
+    thirdViewController.title = @"个人中心";
+    RDVTabBarController *tabBarController = [[RDVTabBarController alloc] init];
+    [tabBarController setViewControllers:@[firstNavigationController, secondNavigationController,
+                                           thirdNavigationController]];
+    g_viewController = tabBarController;
+    
+    [self customizeTabBarForController:tabBarController];
+}
+
+- (void)customizeTabBarForController:(RDVTabBarController *)tabBarController {
+    UIImage *finishedImage = [UIImage imageNamed:@"tabbar_selected_background"];
+    UIImage *unfinishedImage = [UIImage imageNamed:@"tabbar_normal_background"];
+    NSArray *tabBarItemImages = @[@"first", @"second", @"third"];
+    
+    NSInteger index = 0;
+    for (RDVTabBarItem *item in [[tabBarController tabBar] items]) {
+        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
+        UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_selected",
+                                                      [tabBarItemImages objectAtIndex:index]]];
+        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_normal",
+                                                        [tabBarItemImages objectAtIndex:index]]];
+        [item setFinishedSelectedImage:selectedimage withFinishedUnselectedImage:unselectedimage];
+        
+        index++;
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
