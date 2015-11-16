@@ -70,7 +70,7 @@
 }
 - (IBAction)personInfoBtnClick:(UIButton *)sender {
     if ([self.delegate respondsToSelector:@selector(cardViewPersonInfoBtnClcik:andIndex:)]) {
-        [self.delegate cardViewPhotoImgBtnClcik:sender andIndex:self.g_index];
+        [self.delegate cardViewPersonInfoBtnClcik:sender andIndex:self.g_index];
     }
     
 }

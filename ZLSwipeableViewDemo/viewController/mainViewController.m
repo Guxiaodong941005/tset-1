@@ -13,7 +13,9 @@
 #import "IndexAndDirection.h"
 #import "UIImageView+WebCache.h"
 #import "extendMothods.h"
+#import "AFNetworking.h"
 #import "photoDetailViewController.h"
+#import "RDVTabBarController.h"
 #define Lift @"左"
 #define Right @"右"
 @interface mainViewController ()<
@@ -38,8 +40,9 @@ CardViewDelegate>
     
 }
 -(void)viewWillAppear:(BOOL)animated{
+    
     [super viewWillAppear:YES];
-   
+    
 }
 -(void)viewDidAppear:(BOOL)animated{
 // 判断是否是第一次加载本页面
@@ -49,7 +52,7 @@ CardViewDelegate>
         setNSUserDefaults(@"IsFirstLoadMainView", t_kind, @"1");
          self.swipeableView.center = CGPointMake(self.swipeableView.center.x, self.swipeableView.center.y + 20);
     }
-
+    [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
 }
 -(void)viewWillDisappear:(BOOL)animated{
    
@@ -73,6 +76,7 @@ CardViewDelegate>
 }
 #pragma mark - NetWork
 - (void)getDataFromNetWorkWithKind:(NSString *)t_kind{
+    
     if ([t_kind isEqualToString:Lift]) {
         NSMutableArray * t_arr = [NSMutableArray array];
         for (int i = 0; i <6 ; i++) {

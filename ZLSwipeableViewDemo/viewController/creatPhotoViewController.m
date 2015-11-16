@@ -7,7 +7,7 @@
 //
 
 #import "creatPhotoViewController.h"
-
+#import "RDVTabBarController.h"
 @interface creatPhotoViewController ()
 
 @end
@@ -18,7 +18,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+- (void)viewWillAppear:(BOOL)animated{
+    
+  [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
 
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

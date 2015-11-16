@@ -8,7 +8,9 @@
 
 #import "photoDetailViewController.h"
 #import "RDVTabBarController.h"
+#import "UIImageView+WebCache.h"
 @interface photoDetailViewController ()
+@property (strong, nonatomic) IBOutlet UIScrollView *g_scrollView;
 
 @end
 
@@ -16,34 +18,31 @@
 #pragma mark - viewLife cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+    __block  UIImageView * t_imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    [self.g_scrollView addSubview:t_imgView];
+    [t_imgView setBackgroundColor:[UIColor redColor]];
+    [t_imgView sd_setImageWithURL:[NSURL URLWithString:_g_photo.imageurl] placeholderImage:[UIImage imageNamed:@"屏幕快照 2015-11-05 11.40.43"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+        t_imgView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+        self.g_scrollView.contentSize = image.size;
+      
+        
+    }];
     
-
-    // Do any additional setup after loading the view from its nib.
+ 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-- (void)viewWillAppear:(BOOL)animated {
     
+}
+-(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-      [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
-  
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
-}
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+#pragma mark - getter
 
 @end

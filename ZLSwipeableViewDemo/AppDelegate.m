@@ -46,11 +46,11 @@
     UIViewController *firstNavigationController = [[UINavigationController alloc]
                                                    initWithRootViewController:firstViewController];
     firstViewController.title = @"动态";
-    UIViewController *secondViewController = [[myInfoViewController alloc] init];
+    UIViewController *secondViewController = [[creatPhotoViewController alloc] init];
     UIViewController *secondNavigationController = [[UINavigationController alloc]
                                                     initWithRootViewController:secondViewController];
     secondViewController.title = @"创造动态";
-    UIViewController *thirdViewController = [[creatPhotoViewController alloc] init];
+    UIViewController *thirdViewController = [[myInfoViewController alloc] init];
     UIViewController *thirdNavigationController = [[UINavigationController alloc]
                                                    initWithRootViewController:thirdViewController];
     thirdViewController.title = @"个人中心";

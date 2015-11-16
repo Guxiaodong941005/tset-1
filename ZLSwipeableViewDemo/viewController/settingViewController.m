@@ -7,7 +7,7 @@
 //
 
 #import "settingViewController.h"
-
+#import "RDVTabBarController.h"
 @interface settingViewController ()
 
 @end
@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -192,6 +192,7 @@
     
     void (^block)() = ^{
         CGSize viewSize = weakSelf.view.bounds.size;
+        
         CGFloat tabBarStartingY = viewSize.height;
         CGFloat contentViewHeight = viewSize.height;
         CGFloat tabBarHeight = CGRectGetHeight([[weakSelf tabBar] frame]);
@@ -209,9 +210,9 @@
         }
         
         [[weakSelf tabBar] setFrame:CGRectMake(0, tabBarStartingY, viewSize.width, tabBarHeight)];
-        [[weakSelf contentView] setFrame:CGRectMake(0, 0, viewSize.width, contentViewHeight)];
+        [[weakSelf contentView] setFrame:CGRectMake(0, 0 , viewSize.width, viewSize.height - tabBarHeight)];
     };
-    
+  
     void (^completion)(BOOL) = ^(BOOL finished){
         if (hidden) {
             [[weakSelf tabBar] setHidden:YES];

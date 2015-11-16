@@ -81,7 +81,7 @@
                 <outlet property="g_headImageView" destination="ef9-m7-Muh" id="gP0-kj-uOe"/>
                 <outlet property="g_nickNameLable" destination="hWS-9n-yFR" id="kpw-RX-zGI"/>
             </connections>
-            <point key="canvasLocation" x="614" y="302"/>
+            <point key="canvasLocation" x="462" y="302"/>
         </view>
     </objects>
 </document>
