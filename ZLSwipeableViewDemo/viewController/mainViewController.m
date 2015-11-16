@@ -52,7 +52,7 @@ CardViewDelegate>
 
 }
 -(void)viewWillDisappear:(BOOL)animated{
-    NSLog(@"1");
+   
 
 }
 -(void)viewDidDisappear:(BOOL)animated{
