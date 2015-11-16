@@ -23,10 +23,15 @@
     [self.g_scrollView addSubview:t_imgView];
     [t_imgView setBackgroundColor:[UIColor redColor]];
     [t_imgView sd_setImageWithURL:[NSURL URLWithString:_g_photo.imageurl] placeholderImage:[UIImage imageNamed:@"屏幕快照 2015-11-05 11.40.43"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        
-        t_imgView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-        self.g_scrollView.contentSize = image.size;
-      
+        if (!image) {
+            [t_imgView setImage:[UIImage imageNamed:@"屏幕快照 2015-11-05 11.40.43"]];
+            image = [UIImage imageNamed:@"屏幕快照 2015-11-05 11.40.43"];
+            t_imgView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+            self.g_scrollView.contentSize = image.size;
+        }else{
+            t_imgView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+            self.g_scrollView.contentSize = image.size;
+        }
         
     }];
     
