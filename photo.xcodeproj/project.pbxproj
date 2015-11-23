@@ -56,6 +56,7 @@
 		E875EA521BF47103005EA5A7 /* extendMothods.m in Sources */ = {isa = PBXBuildFile; fileRef = E875EA511BF47103005EA5A7 /* extendMothods.m */; };
 		E875EA561BF481BA005EA5A7 /* photoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E875EA541BF481BA005EA5A7 /* photoDetailViewController.m */; };
 		E875EA571BF481BA005EA5A7 /* photoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E875EA551BF481BA005EA5A7 /* photoDetailViewController.xib */; };
+		E87BC05D1C034C4C00BEB30A /* PhotoNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = E87BC05C1C034C4C00BEB30A /* PhotoNetWork.m */; };
 		E8D110371BE35BD90021F0E5 /* IndexAndDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D110361BE35BD90021F0E5 /* IndexAndDirection.m */; };
 		E8F5F1801BF0AF2A00449CB3 /* 百度贴吧副本.json in Resources */ = {isa = PBXBuildFile; fileRef = E8F5F17E1BF0AF2A00449CB3 /* 百度贴吧副本.json */; };
 		E8F5F1811BF0AF2A00449CB3 /* 屏幕快照 2015-11-05 11.40.43.png in Resources */ = {isa = PBXBuildFile; fileRef = E8F5F17F1BF0AF2A00449CB3 /* 屏幕快照 2015-11-05 11.40.43.png */; };
@@ -142,6 +143,8 @@
 		E875EA531BF481BA005EA5A7 /* photoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = photoDetailViewController.h; sourceTree = "<group>"; };
 		E875EA541BF481BA005EA5A7 /* photoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = photoDetailViewController.m; sourceTree = "<group>"; };
 		E875EA551BF481BA005EA5A7 /* photoDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = photoDetailViewController.xib; sourceTree = "<group>"; };
+		E87BC05B1C034C4C00BEB30A /* PhotoNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoNetWork.h; sourceTree = "<group>"; };
+		E87BC05C1C034C4C00BEB30A /* PhotoNetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoNetWork.m; sourceTree = "<group>"; };
 		E8D110351BE35BD90021F0E5 /* IndexAndDirection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexAndDirection.h; sourceTree = "<group>"; };
 		E8D110361BE35BD90021F0E5 /* IndexAndDirection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexAndDirection.m; sourceTree = "<group>"; };
 		E8F5F17E1BF0AF2A00449CB3 /* 百度贴吧副本.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "百度贴吧副本.json"; sourceTree = "<group>"; };
@@ -267,6 +270,7 @@
 		E8573CD71BF33FDD00713352 /* extend */ = {
 			isa = PBXGroup;
 			children = (
+				E87BC05A1C034C2400BEB30A /* extendNetWork */,
 				E875E9FF1BF46047005EA5A7 /* RDVTabBarController */,
 				E8573D0A1BF33FE900713352 /* ProgressHUD */,
 				E875EA501BF47103005EA5A7 /* extendMothods.h */,
@@ -355,6 +359,15 @@
 				E875EA361BF46482005EA5A7 /* third_selected@2x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		E87BC05A1C034C2400BEB30A /* extendNetWork */ = {
+			isa = PBXGroup;
+			children = (
+				E87BC05B1C034C4C00BEB30A /* PhotoNetWork.h */,
+				E87BC05C1C034C4C00BEB30A /* PhotoNetWork.m */,
+			);
+			path = extendNetWork;
 			sourceTree = "<group>";
 		};
 		E8D110341BE35BBF0021F0E5 /* Model */ = {
@@ -575,6 +588,7 @@
 				092F0F371A05B474007CDDCC /* AppDelegate.m in Sources */,
 				092F0F341A05B474007CDDCC /* main.m in Sources */,
 				E875EA561BF481BA005EA5A7 /* photoDetailViewController.m in Sources */,
+				E87BC05D1C034C4C00BEB30A /* PhotoNetWork.m in Sources */,
 				E82BA5971BE3116E0038F210 /* ZLPanGestureRecognizer.m in Sources */,
 				E82BA5981BE3116E0038F210 /* ZLSwipeableView.m in Sources */,
 			);
