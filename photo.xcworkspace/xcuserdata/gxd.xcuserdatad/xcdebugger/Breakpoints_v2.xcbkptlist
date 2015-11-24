@@ -25,14 +25,46 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ZLSwipeableViewDemo/viewController/mainViewController.m"
-            timestampString = "469352215.48462"
+            filePath = "ZLSwipeableViewDemo/AppDelegate.m"
+            timestampString = "469421231.612953"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "-customTabBarForController:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AppDelegate customTabBarForController:]"
+                  moduleName = "photo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yanbin/Desktop/codes/tset-1/ZLSwipeableViewDemo/AppDelegate.m"
+                  timestampString = "469420603.871463"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "1020">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AppDelegate customTabBarForController:]"
+                  moduleName = "photo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yanbin/Desktop/codes/tset-1/ZLSwipeableViewDemo/AppDelegate.m"
+                  timestampString = "469420603.871604"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "1052">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

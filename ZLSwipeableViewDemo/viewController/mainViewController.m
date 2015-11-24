@@ -52,7 +52,7 @@ CardViewDelegate>
         setNSUserDefaults(@"IsFirstLoadMainView", t_kind, @"1");
          self.swipeableView.center = CGPointMake(self.swipeableView.center.x, self.swipeableView.center.y + 20);
     }
-    [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
+
 }
 -(void)viewWillDisappear:(BOOL)animated{
    
@@ -106,6 +106,7 @@ CardViewDelegate>
 -(void)cardViewPhotoImgBtnClcik:(UIView *)sender andIndex:(NSInteger)index{
     photoDetailViewController * t_vc = [[photoDetailViewController alloc] init];
     t_vc.g_photo = self.g_dataArray[index];
+     t_vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:t_vc animated:YES];
 
 }
@@ -174,8 +175,10 @@ CardViewDelegate>
 -(NSMutableArray *)g_dataArray{
     if (!_g_dataArray) {
         _g_dataArray = [NSMutableArray array];
-        NSString * t_filePath = [[NSBundle mainBundle] pathForResource:@"百度贴吧副本" ofType:@"json"];
-        NSData * t_data = [NSData dataWithContentsOfFile:t_filePath];
+//        NSString * t_filePath = [[NSBundle mainBundle] pathForResource:@"百度贴吧副本" ofType:@"json"];
+        
+        
+        NSData * t_data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://52.32.62.9/%E9%A3%8E%E6%99%AF.json"]];
         
         NSError * error;
         NSDictionary * t_dict = [NSJSONSerialization JSONObjectWithData:t_data options:NSJSONReadingMutableLeaves error:&error];

@@ -28,6 +28,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self setupViewControllers];
+//    UINavigationController * t_homeVC = [[UINavigationController alloc] initWithRootViewController:g_viewController];
+//    t_homeVC.navigationBar.hidden = YES;
     [self.window setRootViewController:g_viewController];
     [self.window makeKeyAndVisible];
     
@@ -46,6 +48,7 @@
     UIViewController *firstNavigationController = [[UINavigationController alloc]
                                                    initWithRootViewController:firstViewController];
     firstViewController.title = @"动态";
+    
     UIViewController *secondViewController = [[creatPhotoViewController alloc] init];
     UIViewController *secondNavigationController = [[UINavigationController alloc]
                                                     initWithRootViewController:secondViewController];
@@ -54,12 +57,34 @@
     UIViewController *thirdNavigationController = [[UINavigationController alloc]
                                                    initWithRootViewController:thirdViewController];
     thirdViewController.title = @"个人中心";
-    RDVTabBarController *tabBarController = [[RDVTabBarController alloc] init];
-    [tabBarController setViewControllers:@[firstNavigationController, secondNavigationController,
-                                           thirdNavigationController]];
-    g_viewController = tabBarController;
+//    RDVTabBarController *tabBarController = [[RDVTabBarController alloc] init];
+//    [tabBarController setViewControllers:@[firstNavigationController, secondNavigationController,
+//                                           thirdNavigationController]];
+//    g_viewController = tabBarController;
+//    
+//    [self customizeTabBarForController:tabBarController];
+    [self customTabBarForController:@[firstNavigationController, secondNavigationController,thirdNavigationController]];
     
-    [self customizeTabBarForController:tabBarController];
+    UITabBarController *tb=[[UITabBarController alloc]init];
+    tb.viewControllers = @[firstNavigationController, secondNavigationController,thirdNavigationController];
+    g_viewController = tb;
+}
+- (void)customTabBarForController:(NSArray *)tabBarControllers {
+  
+    
+    NSArray *tabBarItemImages = @[@"first", @"second", @"third"];
+    NSArray * titleArr = @[@"动态",@"创造动态",@"个人中心"];
+    NSInteger index = 0;
+    for (UIViewController *item in tabBarControllers) {
+        UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_selected",
+                                                      [tabBarItemImages objectAtIndex:index]]];
+        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_normal",
+                                                        [tabBarItemImages objectAtIndex:index]]];
+      
+        item.tabBarItem = [[UITabBarItem alloc]initWithTitle:titleArr[index] image:unselectedimage selectedImage:selectedimage];
+          item.hidesBottomBarWhenPushed=YES;
+        index++;
+    }
 }
 
 - (void)customizeTabBarForController:(RDVTabBarController *)tabBarController {

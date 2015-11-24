@@ -17,14 +17,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tC7-0i-7OT" customClass="ZLSwipeableView">
-                    <rect key="frame" x="0.0" y="65" width="600" height="515"/>
+                    <rect key="frame" x="0.0" y="65" width="600" height="480"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="tC7-0i-7OT" secondAttribute="trailing" id="2Zo-SP-Wsg"/>
-                <constraint firstAttribute="bottom" secondItem="tC7-0i-7OT" secondAttribute="bottom" constant="20" id="35T-aG-3bH"/>
+                <constraint firstAttribute="bottom" secondItem="tC7-0i-7OT" secondAttribute="bottom" constant="55" id="35T-aG-3bH"/>
                 <constraint firstItem="tC7-0i-7OT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SP3-Nj-XTO"/>
                 <constraint firstItem="tC7-0i-7OT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="bBt-gC-11A"/>
             </constraints>
