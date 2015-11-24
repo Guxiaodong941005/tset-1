@@ -18,6 +18,12 @@ typedef NS_ENUM(NSUInteger, WhichKind) {
    
     isNSDictionary
 };
+//// 是什么类型的网络连接状态
+typedef NS_ENUM(NSUInteger , WhichNetConnect){
+    isNoNet,
+    isThreeGNet,
+    isWifiNet
+};
 /**
  * 判断是否是第一次加载MainView
  *

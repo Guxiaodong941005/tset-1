@@ -16,6 +16,7 @@
 #import "AFNetworking.h"
 #import "photoDetailViewController.h"
 #import "RDVTabBarController.h"
+#import "PhotoNetWork.h"
 #define Lift @"左"
 #define Right @"右"
 @interface mainViewController ()<
@@ -36,8 +37,30 @@ CardViewDelegate>
     [super viewDidLoad];
     self.swipeableView.delegate = self;
     self.swipeableView.dataSource = self;
-
+    [self getdata];
     
+}
+-(void)getdata{
+    PhotoNetWork * t_photoNetWork = [PhotoNetWork netWork];
+    [t_photoNetWork getActiveDataFromUrlPath:@"风景.json"];
+    t_photoNetWork.callBackDataBlock = ^(BOOL isSuss , id response ,AFNetworkReachabilityStatus status){
+        NSLog(@"fds");
+        
+        
+        NSError * error;
+        
+        NSDictionary * t_dict = [NSJSONSerialization JSONObjectWithData:(NSData *)response options:NSJSONReadingMutableLeaves error:&error];
+        
+        NSLog(@"%@",t_dict);
+        
+        for (NSDictionary * dict in [t_dict objectForKey:@"data"]) {
+            photo * g_photo = [photo setdataWithDict:dict];
+            [_g_dataArray addObject:g_photo];
+        }
+        [self.swipeableView reloadData];
+    
+    };
+
 }
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -47,7 +70,7 @@ CardViewDelegate>
 -(void)viewDidAppear:(BOOL)animated{
 // 判断是否是第一次加载本页面
     if (!judgeIsFirstLoadMainView()) {
-        [self.swipeableView reloadData];
+//        [self.swipeableView reloadData];
         WhichKind t_kind = isBOOL;
         setNSUserDefaults(@"IsFirstLoadMainView", t_kind, @"1");
          self.swipeableView.center = CGPointMake(self.swipeableView.center.x, self.swipeableView.center.y + 20);
@@ -176,19 +199,11 @@ CardViewDelegate>
     if (!_g_dataArray) {
         _g_dataArray = [NSMutableArray array];
 //        NSString * t_filePath = [[NSBundle mainBundle] pathForResource:@"百度贴吧副本" ofType:@"json"];
+
         
         
-        NSData * t_data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://52.32.62.9/%E9%A3%8E%E6%99%AF.json"]];
         
-        NSError * error;
-        NSDictionary * t_dict = [NSJSONSerialization JSONObjectWithData:t_data options:NSJSONReadingMutableLeaves error:&error];
-        
-        NSLog(@"%@",t_dict);
-        
-        for (NSDictionary * dict in [t_dict objectForKey:@"data"]) {
-            photo * g_photo = [photo setdataWithDict:dict];
-            [_g_dataArray addObject:g_photo];
-        }
+       
         
     }
     return _g_dataArray;
