@@ -19,18 +19,21 @@ static inline CGRect ScaleRect(CGRect rect, float n) {return CGRectMake((rect.si
 @synthesize delegate  = _delegate;
 
 #pragma mark - initialization & cleaning up
-- (id)initWithImage:(UIImage *)img 
+- (id)initWithImage:(UIImage *)img
    highlightedImage:(UIImage *)himg
        ContentImage:(UIImage *)cimg
-highlightedContentImage:(UIImage *)hcimg;
+highlightedContentImage:(UIImage *)hcimg
+      itemViewFrame:(CGSize)isize;
 {
     if (self = [super init]) 
     {
+        
         self.image = img;
         self.highlightedImage = himg;
         self.userInteractionEnabled = YES;
         _contentImageView = [[UIImageView alloc] initWithImage:cimg];
         _contentImageView.highlightedImage = hcimg;
+        self.g_itemSize = isize;
         [self addSubview:_contentImageView];
     }
     return self;
@@ -42,8 +45,8 @@ highlightedContentImage:(UIImage *)hcimg;
 {
     [super layoutSubviews];
     
-    self.bounds = CGRectMake(0, 0, self.image.size.width, self.image.size.height);
-    
+//    self.bounds = CGRectMake(0, 0, self.image.size.width, self.image.size.height);
+      self.bounds = CGRectMake(0, 0, self.g_itemSize.width,self.g_itemSize.height);
     float width = _contentImageView.image.size.width;
     float height = _contentImageView.image.size.height;
     _contentImageView.frame = CGRectMake(self.bounds.size.width/2 - width/2, self.bounds.size.height/2 - height/2, width, height);

@@ -67,7 +67,8 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
         _addButton = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg-addbutton.png"]
                                        highlightedImage:[UIImage imageNamed:@"bg-addbutton-highlighted.png"] 
                                            ContentImage:[UIImage imageNamed:@"icon-plus.png"] 
-                                highlightedContentImage:[UIImage imageNamed:@"icon-plus-highlighted.png"]];
+                                highlightedContentImage:[UIImage imageNamed:@"icon-plus-highlighted.png"]
+                      itemViewFrame:CGSizeMake(60, 60)];
         _addButton.delegate = self;
         _addButton.center = self.startPoint;
         [self addSubview:_addButton];

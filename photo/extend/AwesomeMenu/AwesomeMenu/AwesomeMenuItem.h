@@ -30,10 +30,12 @@
 
 @property (nonatomic, assign) id<AwesomeMenuItemDelegate> delegate;
 
+@property (nonatomic ) CGSize g_itemSize;
 - (id)initWithImage:(UIImage *)img 
    highlightedImage:(UIImage *)himg
        ContentImage:(UIImage *)cimg
-highlightedContentImage:(UIImage *)hcimg;
+highlightedContentImage:(UIImage *)hcimg
+      itemViewFrame:(CGSize )isize;
 
 
 @end
