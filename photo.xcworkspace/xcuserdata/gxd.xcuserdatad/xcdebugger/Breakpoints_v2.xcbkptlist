@@ -74,11 +74,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZLSwipeableViewDemo/viewController/mainViewController.m"
-            timestampString = "469982579.18249"
+            timestampString = "470038168.082203"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-getdata"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[mainViewController getdata]"
+                  moduleName = "photo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yanbin/Desktop/codes/tset-1/ZLSwipeableViewDemo/viewController/mainViewController.m"
+                  timestampString = "470038195.209161"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "106">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__29-[mainViewController getdata]_block_invoke"
+                  moduleName = "photo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yanbin/Desktop/codes/tset-1/ZLSwipeableViewDemo/viewController/mainViewController.m"
+                  timestampString = "470038195.209433"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "62">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZLSwipeableViewDemo/viewController/mainViewController.m"
+            timestampString = "470038168.082203"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "-getdata"
             landmarkType = "5">
          </BreakpointContent>

@@ -7,24 +7,25 @@
 //
 
 #import "PhotoNetWork.h"
-#define BASEURL @"http://52.32.62.9/"
+#define BASEURL @"http://52.32.62.9"
 @implementation PhotoNetWork
 +(instancetype)netWork{
     return [[self alloc] init];
 }
 #pragma mark - main mothods
--(void)getActiveDataFromUrlPath:(NSString*)urlPath{
-    NSString * t_url = @"风景.json";
-    [_manager GET:t_url parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        if (!responseObject) {
-                self.callBackDataBlock(YES,responseObject,_manager.reachabilityManager.networkReachabilityStatus);
+-(void)getActiveDataFromUrlPath:(NSString*)urlPath and:(callBackDataBlock)callBack{
+   
+    [self.manager GET:urlPath parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        
+        if (responseObject) {
+                callBack(YES,responseObject,_manager.reachabilityManager.networkReachabilityStatus);
         }else{
-            self.callBackDataBlock(NO ,nil ,_manager.reachabilityManager.networkReachabilityStatus);
+            callBack(NO ,nil ,_manager.reachabilityManager.networkReachabilityStatus);
         }
         
         
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        self.callBackDataBlock(NO,nil,_manager.reachabilityManager.networkReachabilityStatus);
+        callBack(NO,nil,_manager.reachabilityManager.networkReachabilityStatus);
     }];
 
 
@@ -33,8 +34,10 @@
 #pragma mark -getter mothods
 -(AFHTTPRequestOperationManager *)manager{
     if (!_manager) {
-        _manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:BASEURL]];
-        _manager.responseSerializer = [[AFJSONResponseSerializer alloc] init];
+        _manager = [[AFHTTPRequestOperationManager alloc] init];
+        _manager.requestSerializer.timeoutInterval = 15.f;
+        _manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     }
     return _manager;
 }

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "IndexAndDirection.h"
+#define ZanMessage @"赞"
+#define CaiMessage @"踩"
 typedef NS_ENUM(NSUInteger, ZLSwipeableViewDirection) {
     ZLSwipeableViewDirectionNone = 0,
     ZLSwipeableViewDirectionLeft = (1 << 0),
@@ -46,7 +48,7 @@ typedef NS_ENUM(NSUInteger, ZLSwipeableViewDirection) {
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
     didEndSwipingView:(UIView *)view
            atLocation:(CGPoint)location;
-
+- (void)swipeableViewDidswipingDirection:(NSString *)direction;
 @end
 
 // DataSource

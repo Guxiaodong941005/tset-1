@@ -17,8 +17,10 @@
 #import "photoDetailViewController.h"
 #import "RDVTabBarController.h"
 #import "PhotoNetWork.h"
+#import "ProgressHUD.h"
 #define Lift @"左"
 #define Right @"右"
+
 @interface mainViewController ()<
 ZLSwipeableViewDataSource,
 ZLSwipeableViewDelegate,
@@ -42,24 +44,19 @@ CardViewDelegate>
 }
 -(void)getdata{
     PhotoNetWork * t_photoNetWork = [PhotoNetWork netWork];
-    [t_photoNetWork getActiveDataFromUrlPath:@"风景.json"];
-    t_photoNetWork.callBackDataBlock = ^(BOOL isSuss , id response ,AFNetworkReachabilityStatus status){
-        NSLog(@"fds");
+    [t_photoNetWork getActiveDataFromUrlPath:@"http://52.32.62.9/%E9%A3%8E%E6%99%AF.json" and:^(BOOL isSuss, id response, AFNetworkReachabilityStatus netWorkStatus) {
+     
         
-        
-        NSError * error;
-        
-        NSDictionary * t_dict = [NSJSONSerialization JSONObjectWithData:(NSData *)response options:NSJSONReadingMutableLeaves error:&error];
+        NSDictionary * t_dict = (NSDictionary *)response;
         
         NSLog(@"%@",t_dict);
         
         for (NSDictionary * dict in [t_dict objectForKey:@"data"]) {
             photo * g_photo = [photo setdataWithDict:dict];
-            [_g_dataArray addObject:g_photo];
+            [self.g_dataArray addObject:g_photo];
         }
         [self.swipeableView reloadData];
-    
-    };
+    }];
 
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -129,7 +126,7 @@ CardViewDelegate>
 -(void)cardViewPhotoImgBtnClcik:(UIView *)sender andIndex:(NSInteger)index{
     photoDetailViewController * t_vc = [[photoDetailViewController alloc] init];
     t_vc.g_photo = self.g_dataArray[index];
-     t_vc.hidesBottomBarWhenPushed = YES;
+     t_vc.hidesBottomBarWhenPushed = YES;//隐藏tabbar
     [self.navigationController pushViewController:t_vc animated:YES];
 
 }
@@ -191,20 +188,24 @@ CardViewDelegate>
            atLocation:(CGPoint)location {
     NSLog(@"did end swiping at location: x %f, y %f", location.x, location.y);
 }
-
+/**
+ *  拖动并且切换当前视图是的代理方法
+ *
+ *  @param direction 拖动的方向
+ */
+- (void)swipeableViewDidswipingDirection:(NSString *)direction{
+    if ([direction isEqualToString:ZanMessage]) {
+        [ProgressHUD showSuccess:@"赞这张照片！"];
+    }else{
+        [ProgressHUD showError:@"踩这张照片"];
+    }
+}
 #pragma mark - setter
 
 #pragma mark - getter
 -(NSMutableArray *)g_dataArray{
     if (!_g_dataArray) {
         _g_dataArray = [NSMutableArray array];
-//        NSString * t_filePath = [[NSBundle mainBundle] pathForResource:@"百度贴吧副本" ofType:@"json"];
-
-        
-        
-        
-       
-        
     }
     return _g_dataArray;
 }

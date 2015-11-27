@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 #import "extendMothods.h"
+typedef void(^callBackDataBlock)(BOOL isSuss,id response,AFNetworkReachabilityStatus netWorkStatus);
 @interface PhotoNetWork : NSObject
 @property (strong , nonatomic) AFHTTPRequestOperationManager * manager;
-@property (copy ,nonatomic) void (^callBackDataBlock)(BOOL isSuss,id response,AFNetworkReachabilityStatus netWorkStatus);
+
 +(instancetype)netWork;
--(void)getActiveDataFromUrlPath:(NSString*)urlPath;
+-(void)getActiveDataFromUrlPath:(NSString*)urlPath and:(callBackDataBlock)callBack;
 @end

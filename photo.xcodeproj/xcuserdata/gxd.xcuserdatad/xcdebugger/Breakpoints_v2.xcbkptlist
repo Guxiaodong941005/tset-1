@@ -116,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZLSwipeableViewDemo/ZLSwipeableView/ZLSwipeableView.m"
-            timestampString = "468928169.679027"
+            timestampString = "470038168.082203"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "636"
-            endingLineNumber = "636"
+            startingLineNumber = "635"
+            endingLineNumber = "635"
             landmarkName = "-getUserHandlePanDirection:"
             landmarkType = "5">
          </BreakpointContent>

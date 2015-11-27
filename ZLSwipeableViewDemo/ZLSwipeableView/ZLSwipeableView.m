@@ -12,8 +12,7 @@
 #import "ProgressHUD.h"
 #define MAINSCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 #define MAINSCREENHEIGTH  [UIScreen mainScreen].bounds.size.height
-NSString * const zanMessage = @"赞";
-NSString * const caiMessage = @"踩";
+
 const NSUInteger ZLPrefetchedViewsNumber = 1;
 
 ZLSwipeableViewDirection
@@ -665,11 +664,11 @@ int signum(CGFloat n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
     }
     // 弹出提示
     if ([t_str isEqualToString:@"上"]) {
-        [self showMessage:zanMessage];
+        [self showMessage:ZanMessage];
         
     }else if([t_str isEqualToString:@"下"]){
         
-        [self showMessage:caiMessage];
+        [self showMessage:CaiMessage];
     }
 
     
@@ -683,10 +682,17 @@ int signum(CGFloat n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
  */
 -(void)showMessage:(NSString *)t_meassage
 {
-    if ([t_meassage isEqualToString:zanMessage]) {
-        [ProgressHUD showSuccess:@"赞这张照片！"];
+    if ([t_meassage isEqualToString:ZanMessage]) {
+        if ([self.delegate respondsToSelector:@selector(swipeableViewDidswipingDirection:)]) {
+            [self.delegate swipeableViewDidswipingDirection:ZanMessage];
+        }
+      
     }else{
-        [ProgressHUD showError:@"踩这张照片"];
+        
+        if ([self.delegate respondsToSelector:@selector(swipeableViewDidswipingDirection:)]) {
+            [self.delegate swipeableViewDidswipingDirection:CaiMessage];
+        }
+       
     }
 }
 
