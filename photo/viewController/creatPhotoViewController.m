@@ -31,7 +31,7 @@
     
     UIImage *starImage = [UIImage imageNamed:@"icon-star.png"];
     NSMutableArray * t_arr = [NSMutableArray array];
-    for (int i; i < 8; i++) {
+    for (int i = 0; i < 9; i++) {
         AwesomeMenuItem * starMenuItem = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
                                                                highlightedImage:storyMenuItemImagePressed
                                                                    ContentImage:starImage

@@ -68,7 +68,7 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
                                        highlightedImage:[UIImage imageNamed:@"bg-addbutton-highlighted.png"] 
                                            ContentImage:[UIImage imageNamed:@"icon-plus.png"] 
                                 highlightedContentImage:[UIImage imageNamed:@"icon-plus-highlighted.png"]
-                      itemViewFrame:CGSizeMake(60, 60)];
+                      itemViewFrame:CGSizeMake(50, 50)];
         _addButton.delegate = self;
         _addButton.center = self.startPoint;
         [self addSubview:_addButton];
@@ -311,6 +311,7 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
     [item.layer addAnimation:animationgroup forKey:@"Expand"];
     item.center = item.endPoint;
     
+    item.alpha = 1;
     _flag ++;
     
   
@@ -355,6 +356,9 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
     animationgroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     [item.layer addAnimation:animationgroup forKey:@"Close"];
     item.center = item.startPoint;
+    [UIView animateWithDuration:kAwesomeMenuDefaultCloseRotationDuration animations:^{
+        item.alpha = 0;
+    }];
     _flag --;
    
 }
