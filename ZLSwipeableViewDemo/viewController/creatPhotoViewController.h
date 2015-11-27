@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface creatPhotoViewController : UIViewController
+#import "AwesomeMenu.h"
+@interface creatPhotoViewController : UIViewController<AwesomeMenuDelegate>
 
 @end

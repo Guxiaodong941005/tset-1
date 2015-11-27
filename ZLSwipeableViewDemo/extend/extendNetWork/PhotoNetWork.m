@@ -28,8 +28,6 @@
         callBack(NO,nil,_manager.reachabilityManager.networkReachabilityStatus);
     }];
 
-
-
 }
 #pragma mark -getter mothods
 -(AFHTTPRequestOperationManager *)manager{

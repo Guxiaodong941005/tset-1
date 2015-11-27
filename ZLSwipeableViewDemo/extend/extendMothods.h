@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#define MAINSCREEN [UIScreen mainScreen].bounds
+
 //// 是什么类型的对象
 typedef NS_ENUM(NSUInteger, WhichKind) {
     
