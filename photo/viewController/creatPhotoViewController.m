@@ -28,10 +28,10 @@
 - (void)drawMainView{
     UIImage *storyMenuItemImage = [UIImage imageNamed:@"bg-menuitem.png"];
     UIImage *storyMenuItemImagePressed = [UIImage imageNamed:@"bg-menuitem-highlighted.png"];
-    
-    UIImage *starImage = [UIImage imageNamed:@"icon-star.png"];
+  
     NSMutableArray * t_arr = [NSMutableArray array];
     for (int i = 0; i < 9; i++) {
+          UIImage *starImage = [self getImageFromColor:nil];
         AwesomeMenuItem * starMenuItem = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
                                                                highlightedImage:storyMenuItemImagePressed
                                                                    ContentImage:starImage
@@ -57,6 +57,25 @@
     NSLog(@"Menu is open!");
 }
 
+#pragma mark - private mothods
+- (UIImage *)getImageFromColor:(UIColor *)color{
+    color = [self randomColor];
+    CGRect rect = CGRectMake(0, 0, 60, 60);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
+}
+-(UIColor *)randomColor{
+     CGFloat hue = ( arc4random() % 256 / 256.0 );  //0.0 to 1.0
 
+     CGFloat saturation = (arc4random() % 128 / 256.0 ) + 0.5;  // 0.5 to 1.0,away from white
 
+     CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //0.5 to 1.0,away from black
+
+    return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1.0f];
+}
 @end

@@ -19,8 +19,9 @@ static CGFloat const kAwesomeMenuDefaultRotateAngle = 0.0;
 static CGFloat const kAwesomeMenuDefaultMenuWholeAngle = M_PI * 2;
 static CGFloat const kAwesomeMenuDefaultExpandRotation = M_PI * 1;
 static CGFloat const kAwesomeMenuDefaultCloseRotation = M_PI * 2;
-static CGFloat const kAwesomeMenuDefaultExpandRotationDuration = 1.5f;
+static CGFloat const kAwesomeMenuDefaultExpandRotationDuration = 1.0f;
 static CGFloat const kAwesomeMenuDefaultCloseRotationDuration = 1.5f;
+static CGFloat const kAwesomeMenuDefaultCloseHiddenItemDuration = 2.0f;
 static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float angle)
 {
     CGAffineTransform translation = CGAffineTransformMakeTranslation(center.x, center.y);
@@ -310,12 +311,11 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
     animationgroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     [item.layer addAnimation:animationgroup forKey:@"Expand"];
     item.center = item.endPoint;
-    
-    item.alpha = 1;
+    // item 显示动画
+    [UIView animateWithDuration:kAwesomeMenuDefaultCloseHiddenItemDuration animations:^{
+        item.alpha = 1;
+    }];
     _flag ++;
-    
-  
-    
 }
 
 - (void)_close
@@ -356,7 +356,7 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
     animationgroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     [item.layer addAnimation:animationgroup forKey:@"Close"];
     item.center = item.startPoint;
-    [UIView animateWithDuration:kAwesomeMenuDefaultCloseRotationDuration animations:^{
+    [UIView animateWithDuration:kAwesomeMenuDefaultCloseHiddenItemDuration animations:^{
         item.alpha = 0;
     }];
     _flag --;

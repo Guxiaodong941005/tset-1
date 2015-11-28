@@ -20,7 +20,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     
-    [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
+
     
 }
 - (void)didReceiveMemoryWarning {

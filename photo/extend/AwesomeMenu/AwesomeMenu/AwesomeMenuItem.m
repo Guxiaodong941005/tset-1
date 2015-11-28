@@ -33,7 +33,10 @@ highlightedContentImage:(UIImage *)hcimg
         self.userInteractionEnabled = YES;
         _contentImageView = [[UIImageView alloc] initWithImage:cimg];
         _contentImageView.highlightedImage = hcimg;
+        _contentImageView.layer.cornerRadius = cimg.size.width/2;
+        _contentImageView.layer.masksToBounds = YES;
         self.g_itemSize = isize;
+    
         [self addSubview:_contentImageView];
     }
     return self;
