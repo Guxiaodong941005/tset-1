@@ -47,34 +47,81 @@
 
     // Corner Radius
     self.layer.cornerRadius = 10.0;
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoImgBtnClick:)];
+    tap.numberOfTapsRequired = 1;
+    [self.g_contentView addGestureRecognizer:tap];
+    [self.g_headView addGestureRecognizer:tap];
+    [self.g_contentView.layer addSublayer:self.placeHolderLayer];
+    
 }
 #pragma mark - set mothods
 -(void)setG_photo:(photo *)g_photo{
     if (g_photo) {
         self.g_nickNameLable.text = g_photo.floor;
         self.g_contentLable.text = g_photo.content;
-        [self.g_headImageView sd_setImageWithURL:[NSURL URLWithString:g_photo.imageurl] placeholderImage:[UIImage imageNamed:@"屏幕快照 2015-11-05 11.40.43.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            
-        }];
         [self.g_contentImageView sd_setImageWithURL:[NSURL URLWithString:g_photo.imageurl] placeholderImage:[UIImage imageNamed:@"屏幕快照 2015-11-05 11.40.43.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            self.asImageView.image = image;
+              _asImageView.frame = self.g_contentView.frame;
+            [self.g_contentView.layer addSublayer:self.asImageView.layer];
             
         }];
+       
     }
 
 }
-- (IBAction)photoImgBtnClick:(UIButton *)sender {
-    if ([self.delegate respondsToSelector:@selector(cardViewPhotoImgBtnClcik:andIndex:)]) {
-        [self.delegate cardViewPhotoImgBtnClcik:sender andIndex:self.g_index];
+#pragma mark - Gesture mothods
+- (void)photoImgBtnClick:(UITapGestureRecognizer *)sender {
+    BOOL isContentView = self.g_contentView.frame.size.width > 80 ? YES:NO;
+    
+    if (isContentView) {
+        if ([self.delegate respondsToSelector:@selector(cardViewPhotoImgBtnClcik:andIndex:)]) {
+            [self.delegate cardViewPhotoImgBtnClcik:sender.view andIndex:self.g_index];
+        }
+    }else{
+        if ([self.delegate respondsToSelector:@selector(cardViewPersonInfoBtnClcik:andIndex:)]) {
+            [self.delegate cardViewPersonInfoBtnClcik:sender.view andIndex:self.g_index];
+        }
+        
     }
+}
+- (void)personInfoBtnClick:(UITapGestureRecognizer *)sender {
     
 }
-- (IBAction)personInfoBtnClick:(UIButton *)sender {
-    if ([self.delegate respondsToSelector:@selector(cardViewPersonInfoBtnClcik:andIndex:)]) {
-        [self.delegate cardViewPersonInfoBtnClcik:sender andIndex:self.g_index];
+#pragma mark - getter
+
+-(ASImageNode *)asImageView{
+    if (!_asImageView) {
+        _asImageView = [[ASImageNode alloc] init];
+        _asImageView.frame = self.g_contentView.frame;
     }
-    
+    return _asImageView;
 }
-
-#pragma mark - clickEvents
-
+-(ASImageNode *)asHandimageView{
+    if (_asHandimageView) {
+        _asHandimageView = [[ASImageNode alloc] init];
+        _asHandimageView.frame = self.g_headView.frame;
+    }
+    return _asHandimageView;
+}
+-(CALayer *)placeHolderLayer{
+    if (!_placeHolderLayer) {
+        _placeHolderLayer = [[CALayer alloc] init];
+        _placeHolderLayer.frame = self.g_contentView.frame;
+        _placeHolderLayer.contents = [UIImage imageNamed:@"屏幕快照 2015-11-05 11.40.43.png"];
+        _placeHolderLayer.contentsScale = [UIScreen mainScreen].scale;
+    }
+    return _placeHolderLayer;
+}
+-(UIImageView *)g_contentImageView{
+    if (!_g_contentImageView) {
+        _g_contentImageView = [[UIImageView alloc] init];
+    }
+    return _g_contentImageView;
+}
+-(UIImageView *)g_headImageView{
+    if (!_g_headImageView) {
+        _g_headImageView = [[UIImageView alloc] init];
+    }
+    return _g_headImageView;
+}
 @end

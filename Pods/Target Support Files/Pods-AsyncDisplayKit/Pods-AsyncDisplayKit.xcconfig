@@ -1,0 +1,1 @@
+PODS_ASYNCDISPLAYKIT_OTHER_LDFLAGS = -l"c++" -framework "AssetsLibrary" -weak_framework "Photos"

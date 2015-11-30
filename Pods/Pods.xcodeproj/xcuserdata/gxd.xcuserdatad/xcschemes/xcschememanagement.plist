@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking.xcscheme</key>
+		<key>Pods-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-AsyncDisplayKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -14,25 +24,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SDWebImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1D7B64B481DE1653CDFEF9DC0A650BD7</key>
+		<key>1A1B83F280F0175F0AF8916E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2BD0C9D656485354FAF1A693AF358703</key>
+		<key>5A0F7EE03B8045A34E61296E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
+		<key>AA7131C58583C3B786B9A4EC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AFFBB156727A3007C5D0E0FF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
