@@ -11,7 +11,13 @@
 #import "ProgressHUD.h"
 
 @implementation CardView
-
+#pragma mark - view life cycle
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    self.asImageView.frame = self.g_contentView.bounds;
+    self.asHandimageView.frame = self.g_headView.bounds;
+    
+}
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -35,6 +41,7 @@
     }
     return self;
 }
+
 
 - (void)setup {
     // Shadow
@@ -61,7 +68,7 @@
         self.g_contentLable.text = g_photo.content;
         [self.g_contentImageView sd_setImageWithURL:[NSURL URLWithString:g_photo.imageurl] placeholderImage:[UIImage imageNamed:@"屏幕快照 2015-11-05 11.40.43.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             self.asImageView.image = image;
-              _asImageView.frame = self.g_contentView.frame;
+            
             [self.g_contentView.layer addSublayer:self.asImageView.layer];
             
         }];
@@ -92,22 +99,20 @@
 -(ASImageNode *)asImageView{
     if (!_asImageView) {
         _asImageView = [[ASImageNode alloc] init];
-        _asImageView.frame = self.g_contentView.frame;
     }
     return _asImageView;
 }
 -(ASImageNode *)asHandimageView{
     if (_asHandimageView) {
         _asHandimageView = [[ASImageNode alloc] init];
-        _asHandimageView.frame = self.g_headView.frame;
     }
     return _asHandimageView;
 }
 -(CALayer *)placeHolderLayer{
     if (!_placeHolderLayer) {
         _placeHolderLayer = [[CALayer alloc] init];
-        _placeHolderLayer.frame = self.g_contentView.frame;
-        _placeHolderLayer.contents = [UIImage imageNamed:@"屏幕快照 2015-11-05 11.40.43.png"];
+        UIImage * t_img = [UIImage imageNamed:@"屏幕快照 2015-11-05 11.40.43.png"];
+        _placeHolderLayer.contents = (id)t_img.CGImage;
         _placeHolderLayer.contentsScale = [UIScreen mainScreen].scale;
     }
     return _placeHolderLayer;

@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "photo/view/CardView.m"
-            timestampString = "470573318.847835"
+            timestampString = "470574289.797011"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "-setG_photo:"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "photo/view/CardView.m"
-            timestampString = "470572282.091147"
+            timestampString = "470574289.797011"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "-setG_photo:"
             landmarkType = "5">
             <Locations>
@@ -202,11 +202,11 @@
                   moduleName = "photo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yanbin/Desktop/photo1/photo/view/CardView.m"
-                  timestampString = "470573319.936176"
+                  timestampString = "470574303.196595"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
                   offsetFromSymbolStart = "334">
                </Location>
                <Location
@@ -217,11 +217,11 @@
                   moduleName = "photo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yanbin/Desktop/photo1/photo/view/CardView.m"
-                  timestampString = "470573319.936381"
+                  timestampString = "470574303.196813"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
                   offsetFromSymbolStart = "90">
                </Location>
             </Locations>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "photo/view/CardView.m"
-            timestampString = "470573318.847835"
+            timestampString = "470574289.797011"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "-photoImgBtnClick:"
             landmarkType = "5">
          </BreakpointContent>
