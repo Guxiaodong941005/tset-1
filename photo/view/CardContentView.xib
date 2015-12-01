@@ -27,7 +27,23 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGO-Sj-aU1">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngn-OK-BSj">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
+                            <inset key="contentEdgeInsets" minX="11" minY="12" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="11" minY="11" maxX="11" maxY="11"/>
+                            <connections>
+                                <action selector="photoImgBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="5VQ-Ie-GxR"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Ngn-OK-BSj" secondAttribute="bottom" id="GjI-7S-lnt"/>
+                        <constraint firstItem="Ngn-OK-BSj" firstAttribute="top" secondItem="fGO-Sj-aU1" secondAttribute="top" id="im1-ic-6QC"/>
+                        <constraint firstItem="Ngn-OK-BSj" firstAttribute="leading" secondItem="fGO-Sj-aU1" secondAttribute="leading" id="rKb-Pb-JLT"/>
+                        <constraint firstAttribute="trailing" secondItem="Ngn-OK-BSj" secondAttribute="trailing" id="uVA-Qc-i3Y"/>
+                    </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWS-9n-yFR">
                     <rect key="frame" x="104" y="510" width="488" height="30"/>

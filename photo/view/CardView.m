@@ -54,11 +54,7 @@
 
     // Corner Radius
     self.layer.cornerRadius = 10.0;
-    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoImgBtnClick:)];
-    tap.numberOfTapsRequired = 1;
-    [self.g_contentView addGestureRecognizer:tap];
-    [self.g_headView addGestureRecognizer:tap];
-    [self.g_contentView.layer addSublayer:self.placeHolderLayer];
+   
     
 }
 #pragma mark - set mothods
@@ -77,20 +73,21 @@
 
 }
 #pragma mark - Gesture mothods
-- (void)photoImgBtnClick:(UITapGestureRecognizer *)sender {
+- (IBAction)photoImgBtnClick:(UIButton *)sender {
     BOOL isContentView = self.g_contentView.frame.size.width > 80 ? YES:NO;
     
     if (isContentView) {
         if ([self.delegate respondsToSelector:@selector(cardViewPhotoImgBtnClcik:andIndex:)]) {
-            [self.delegate cardViewPhotoImgBtnClcik:sender.view andIndex:self.g_index];
+            [self.delegate cardViewPhotoImgBtnClcik:sender andIndex:self.g_index];
         }
     }else{
         if ([self.delegate respondsToSelector:@selector(cardViewPersonInfoBtnClcik:andIndex:)]) {
-            [self.delegate cardViewPersonInfoBtnClcik:sender.view andIndex:self.g_index];
+            [self.delegate cardViewPersonInfoBtnClcik:sender andIndex:self.g_index];
         }
         
     }
 }
+
 - (void)personInfoBtnClick:(UITapGestureRecognizer *)sender {
     
 }
@@ -108,15 +105,6 @@
     }
     return _asHandimageView;
 }
--(CALayer *)placeHolderLayer{
-    if (!_placeHolderLayer) {
-        _placeHolderLayer = [[CALayer alloc] init];
-        UIImage * t_img = [UIImage imageNamed:@"屏幕快照 2015-11-05 11.40.43.png"];
-        _placeHolderLayer.contents = (id)t_img.CGImage;
-        _placeHolderLayer.contentsScale = [UIScreen mainScreen].scale;
-    }
-    return _placeHolderLayer;
-}
 -(UIImageView *)g_contentImageView{
     if (!_g_contentImageView) {
         _g_contentImageView = [[UIImageView alloc] init];
@@ -128,5 +116,11 @@
         _g_headImageView = [[UIImageView alloc] init];
     }
     return _g_headImageView;
+}
+-(UIView *)g_contentView{
+    if (!_g_contentView) {
+        _g_contentView = [[UIView alloc] init];
+    }
+    return _g_contentView;
 }
 @end
