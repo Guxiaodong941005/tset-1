@@ -8,8 +8,9 @@
 
 #import "ZLSwipeableView.h"
 #import "ZLPanGestureRecognizer.h"
-#import "CardView.h"
+
 #import "ProgressHUD.h"
+#import "AsyncDisplayKit.h"
 #define MAINSCREENWIDTH  [UIScreen mainScreen].bounds.size.width
 #define MAINSCREENHEIGTH  [UIScreen mainScreen].bounds.size.height
 
@@ -54,7 +55,7 @@ ZLDirectionVectorToSwipeableViewDirection(CGVector directionVector) {
 @property (strong, nonatomic) UIView *containerView;
 // GXD add+++
 @property (assign , nonatomic) CGPoint g_LocationRect;
-
+@property (strong , nonatomic) CardView * cardview;
 @end
 
 @implementation ZLSwipeableView
@@ -747,5 +748,23 @@ int signum(CGFloat n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
     return view;
 
 }
-
+#pragma mark - private methods
+-(CardView *)getCardViewFromdequeueReusableView{
+    if (self.cardview == nil) {
+        self.cardview = [[[NSBundle mainBundle] loadNibNamed:@"CardContentView" owner:self options:nil] objectAtIndex:0];
+    }else{
+        // 清理 缓存池中 view 的 子layer
+      
+            [self.cardview.g_contentView.layer.sublayers enumerateObjectsUsingBlock:^(CALayer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj isKindOfClass:[_ASDisplayLayer class]]) {
+                    [obj removeFromSuperlayer];
+                }
+            }];
+        
+       
+    self.cardview.g_nickNameLable.text = nil;
+    self.cardview.g_contentLable.text = nil;
+    }
+    return self.cardview;
+}
 @end
