@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "ProgressHUD.h"
 
+
 @implementation CardView
 #pragma mark - view life cycle
 -(void)layoutSubviews{
@@ -45,34 +46,21 @@
 
 - (void)setup {
     // Shadow
-    self.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.layer.shadowOpacity = 0.33;
-    self.layer.shadowOffset = CGSizeMake(0, 1.5);
-    self.layer.shadowRadius = 4.0;
-    self.layer.shouldRasterize = YES;
-    self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+//    self.layer.shadowColor = [UIColor blackColor].CGColor;
+//    self.layer.shadowOpacity = 0.33;
+//    self.layer.shadowOffset = CGSizeMake(0, 1.5);
+//    self.layer.shadowRadius = 4.0;
+//    self.layer.shouldRasterize = YES;
+//    self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
 
     // Corner Radius
-    self.layer.cornerRadius = 10.0;
+//    self.layer.cornerRadius = 10.0;
    
     
 }
-#pragma mark - set mothods
--(void)setG_photo:(photo *)g_photo{
-    if (g_photo) {
-        self.g_nickNameLable.text = g_photo.floor;
-        self.g_contentLable.text = g_photo.content;
-        [self.g_contentImageView sd_setImageWithURL:[NSURL URLWithString:g_photo.imageurl] placeholderImage:[UIImage imageNamed:@"屏幕快照 2015-11-05 11.40.43.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            self.asImageView.image = image;
-            
-            [self.g_contentView.layer addSublayer:self.asImageView.layer];
-            
-        }];
-       
-    }
+#pragma mark - private motheds
 
-}
-#pragma mark - Gesture mothods
+#pragma mark - Gesture motheds
 - (IBAction)photoImgBtnClick:(UIButton *)sender {
     BOOL isContentView = self.g_contentView.frame.size.width > 80 ? YES:NO;
     
@@ -100,10 +88,10 @@
     return _asImageView;
 }
 -(ASImageNode *)asHandimageView{
-    if (_asHandimageView) {
-        _asHandimageView = [[ASImageNode alloc] init];
+    if (_asHeadimageView) {
+        _asHeadimageView = [[ASImageNode alloc] init];
     }
-    return _asHandimageView;
+    return _asHeadimageView;
 }
 -(UIImageView *)g_contentImageView{
     if (!_g_contentImageView) {
@@ -122,5 +110,21 @@
         _g_contentView = [[UIView alloc] init];
     }
     return _g_contentView;
+}
+
+#pragma mark - set mothods
+-(void)setG_photo:(photo *)g_photo{
+    if (g_photo) {
+        self.g_nickNameLable.text = g_photo.floor;
+        self.g_contentLable.text = g_photo.content;
+        [self.g_contentImageView sd_setImageWithURL:[NSURL URLWithString:g_photo.imageurl] placeholderImage:[UIImage imageNamed:@"屏幕快照 2015-11-05 11.40.43.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            self.asImageView.image = image;
+            
+            [self.g_contentView.layer addSublayer:self.asImageView.layer];
+            
+        }];
+        
+    }
+    
 }
 @end

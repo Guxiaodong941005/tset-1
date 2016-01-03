@@ -29,6 +29,7 @@ CardViewDelegate>
 @property (nonatomic, strong) NSArray *colors;
 @property (nonatomic) NSUInteger colorIndex;
 @property (strong , nonatomic) NSMutableArray * g_dataArray;
+
 @end
 
 @implementation mainViewController
@@ -134,16 +135,13 @@ CardViewDelegate>
 - (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView andIndexAndDirection:(IndexAndDirection *)indexAndDirection{
     if (indexAndDirection.g_index < self.g_dataArray.count) {
         
-        CardView *contentView =
-        [[[NSBundle mainBundle] loadNibNamed:@"CardContentView"
-                                       owner:self
-                                     options:nil] objectAtIndex:0];
-        contentView.translatesAutoresizingMaskIntoConstraints = NO;
-        contentView.delegate = self;
-        contentView.g_index = indexAndDirection.g_index;
-        contentView.g_photo = _g_dataArray[indexAndDirection.g_index];
+        CardView * cardview = [swipeableView getCardViewFromdequeueReusableView];
+        cardview.translatesAutoresizingMaskIntoConstraints = NO;
+        cardview.delegate = self;
+        cardview.g_index = indexAndDirection.g_index;
+        cardview.g_photo = _g_dataArray[indexAndDirection.g_index];
         
-        return contentView;
+        return cardview;
     }else{
         
         [self updateDataWithIndexAndDirection:indexAndDirection];
@@ -156,35 +154,35 @@ CardViewDelegate>
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
          didSwipeView:(UIView *)view
           inDirection:(ZLSwipeableViewDirection)direction {
-    NSLog(@"did swipe in direction: %zd", direction);
+//    NSLog(@"did swipe in direction: %zd", direction);
 }
 
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
        didCancelSwipe:(UIView *)view {
-    NSLog(@"did cancel swipe");
+//    NSLog(@"did cancel swipe");
 }
 
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
   didStartSwipingView:(UIView *)view
            atLocation:(CGPoint)location {
-    NSLog(@"did start swiping at location: x %f, y %f", location.x, location.y);
+//    NSLog(@"did start swiping at location: x %f, y %f", location.x, location.y);
 }
 
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
           swipingView:(UIView *)view
            atLocation:(CGPoint)location
           translation:(CGPoint)translation {
-    NSLog(@"swiping at location: x %f, y %f, translation: x %f, y %f",
-          location.x, location.y, translation.x, translation.y);
+//    NSLog(@"swiping at location: x %f, y %f, translation: x %f, y %f",
+//          location.x, location.y, translation.x, translation.y);
 }
 
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
     didEndSwipingView:(UIView *)view
            atLocation:(CGPoint)location {
-    NSLog(@"did end swiping at location: x %f, y %f", location.x, location.y);
+//    NSLog(@"did end swiping at location: x %f, y %f", location.x, location.y);
 }
 /**
- *  拖动并且切换当前视图是的代理方法
+ *  拖动并且切换当前视图的代理方法
  *
  *  @param direction 拖动的方向
  */
@@ -204,4 +202,5 @@ CardViewDelegate>
     }
     return _g_dataArray;
 }
+
 @end

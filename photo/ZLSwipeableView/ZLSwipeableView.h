@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "IndexAndDirection.h"
+#import "CardView.h"
 #define ZanMessage @"赞"
 #define CaiMessage @"踩"
 typedef NS_ENUM(NSUInteger, ZLSwipeableViewDirection) {
@@ -125,4 +126,5 @@ typedef NS_ENUM(NSUInteger, ZLSwipeableViewDirection) {
 - (void)swipeTopViewToDown;
 /// 刷新方法
 - (void)reloadData;
+-(CardView *)getCardViewFromdequeueReusableView;
 @end

@@ -501,6 +501,7 @@
 				TargetAttributes = {
 					092F0F2D1A05B474007CDDCC = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = X63T6X2785;
 					};
 					092F0F461A05B474007CDDCC = {
 						CreatedOnToolsVersion = 6.1;
@@ -776,7 +777,7 @@
 				INFOPLIST_FILE = photo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.photo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gxd.photo;
 				PRODUCT_NAME = photo;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -794,7 +795,7 @@
 				INFOPLIST_FILE = photo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.photo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gxd.photo;
 				PRODUCT_NAME = photo;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="myInfoViewController">
             <connections>
+                <outlet property="imgview" destination="2Pc-rl-Pfm" id="gVA-S4-G7r"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +15,19 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Pc-rl-Pfm">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="483"/>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="2Pc-rl-Pfm" secondAttribute="bottom" constant="117" id="C0C-RU-mzi"/>
+                <constraint firstAttribute="trailing" secondItem="2Pc-rl-Pfm" secondAttribute="trailing" id="hT2-hn-wp8"/>
+                <constraint firstItem="2Pc-rl-Pfm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lYe-Fb-LQl"/>
+                <constraint firstItem="2Pc-rl-Pfm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uMM-tF-jey"/>
+            </constraints>
+            <point key="canvasLocation" x="359" y="301"/>
         </view>
     </objects>
 </document>

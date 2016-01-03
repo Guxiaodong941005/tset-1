@@ -34,6 +34,8 @@
 @property (nonatomic ,assign) NSInteger g_index;// 记录当前view是顺序
 
 @property (strong , nonatomic) ASImageNode * asImageView;
-@property (strong , nonatomic) ASImageNode * asHandimageView;
+@property (strong , nonatomic) ASImageNode * asHeadimageView;
 @property (strong , nonatomic) CALayer * placeHolderLayer;
+@property (strong , nonatomic) CardView * cardview;
+-(CardView *)getCardViewFromdequeueReusableView;
 @end
