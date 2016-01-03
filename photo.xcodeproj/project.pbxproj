@@ -13,7 +13,6 @@
 		092F0F3F1A05B474007CDDCC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 092F0F3E1A05B474007CDDCC /* Images.xcassets */; };
 		092F0F421A05B474007CDDCC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 092F0F401A05B474007CDDCC /* LaunchScreen.xib */; };
 		092F0F4E1A05B474007CDDCC /* photoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 092F0F4D1A05B474007CDDCC /* photoTests.m */; };
-		092F0F661A05C9CA007CDDCC /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 092F0F651A05C9CA007CDDCC /* UIColor+FlatColors.m */; };
 		D47659301EB33362C8DCC339 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D0E740702FEE385B822A83 /* libPods.a */; };
 		E82BA5971BE3116E0038F210 /* ZLPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E82BA5941BE3116E0038F210 /* ZLPanGestureRecognizer.m */; };
 		E82BA5981BE3116E0038F210 /* ZLSwipeableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E82BA5961BE3116E0038F210 /* ZLSwipeableView.m */; };
@@ -74,7 +73,6 @@
 		E8AD94651C08241B00E882F6 /* icon-star.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AD94551C08241B00E882F6 /* icon-star.png */; };
 		E8AD94661C08241B00E882F6 /* icon-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AD94561C08241B00E882F6 /* icon-star@2x.png */; };
 		E8D110371BE35BD90021F0E5 /* IndexAndDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D110361BE35BD90021F0E5 /* IndexAndDirection.m */; };
-		E8F5F1801BF0AF2A00449CB3 /* 百度贴吧副本.json in Resources */ = {isa = PBXBuildFile; fileRef = E8F5F17E1BF0AF2A00449CB3 /* 百度贴吧副本.json */; };
 		E8F5F1811BF0AF2A00449CB3 /* 屏幕快照 2015-11-05 11.40.43.png in Resources */ = {isa = PBXBuildFile; fileRef = E8F5F17F1BF0AF2A00449CB3 /* 屏幕快照 2015-11-05 11.40.43.png */; };
 /* End PBXBuildFile section */
 
@@ -100,8 +98,6 @@
 		092F0F471A05B474007CDDCC /* photo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = photo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		092F0F4C1A05B474007CDDCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		092F0F4D1A05B474007CDDCC /* photoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = photoTests.m; sourceTree = "<group>"; };
-		092F0F641A05C9CA007CDDCC /* UIColor+FlatColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatColors.h"; sourceTree = "<group>"; };
-		092F0F651A05C9CA007CDDCC /* UIColor+FlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatColors.m"; sourceTree = "<group>"; };
 		D19F45E67933FFEFB43C138B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DCB1320BBF2BD7124DE04A4D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E82BA5931BE3116E0038F210 /* ZLPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLPanGestureRecognizer.h; sourceTree = "<group>"; };
@@ -181,7 +177,6 @@
 		E8AD94561C08241B00E882F6 /* icon-star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-star@2x.png"; sourceTree = "<group>"; };
 		E8D110351BE35BD90021F0E5 /* IndexAndDirection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexAndDirection.h; sourceTree = "<group>"; };
 		E8D110361BE35BD90021F0E5 /* IndexAndDirection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexAndDirection.m; sourceTree = "<group>"; };
-		E8F5F17E1BF0AF2A00449CB3 /* 百度贴吧副本.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "百度贴吧副本.json"; sourceTree = "<group>"; };
 		E8F5F17F1BF0AF2A00449CB3 /* 屏幕快照 2015-11-05 11.40.43.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "屏幕快照 2015-11-05 11.40.43.png"; sourceTree = "<group>"; };
 		F6D0E740702FEE385B822A83 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -232,11 +227,9 @@
 				E875EA0D1BF4621D005EA5A7 /* view */,
 				E875EA091BF461D5005EA5A7 /* viewController */,
 				E8573CD71BF33FDD00713352 /* extend */,
-				E8F5F17E1BF0AF2A00449CB3 /* 百度贴吧副本.json */,
 				E8F5F17F1BF0AF2A00449CB3 /* 屏幕快照 2015-11-05 11.40.43.png */,
 				E8D110341BE35BBF0021F0E5 /* Model */,
 				E82BA5921BE3116E0038F210 /* ZLSwipeableView */,
-				092F0F631A05C9CA007CDDCC /* UIColor+FlatColors */,
 				092F0F351A05B474007CDDCC /* AppDelegate.h */,
 				092F0F361A05B474007CDDCC /* AppDelegate.m */,
 				092F0F3B1A05B474007CDDCC /* Main.storyboard */,
@@ -271,15 +264,6 @@
 				092F0F4C1A05B474007CDDCC /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		092F0F631A05C9CA007CDDCC /* UIColor+FlatColors */ = {
-			isa = PBXGroup;
-			children = (
-				092F0F641A05C9CA007CDDCC /* UIColor+FlatColors.h */,
-				092F0F651A05C9CA007CDDCC /* UIColor+FlatColors.m */,
-			);
-			path = "UIColor+FlatColors";
 			sourceTree = "<group>";
 		};
 		4FCECF4902CB50CCC5F65044 /* Frameworks */ = {
@@ -560,7 +544,6 @@
 				E875EA391BF46482005EA5A7 /* first_selected.png in Resources */,
 				E8AD94621C08241B00E882F6 /* icon-plus-highlighted@2x.png in Resources */,
 				E875EA3D1BF46482005EA5A7 /* navigationbar_background_tall.png in Resources */,
-				E8F5F1801BF0AF2A00449CB3 /* 百度贴吧副本.json in Resources */,
 				092F0F3D1A05B474007CDDCC /* Main.storyboard in Resources */,
 				E8AD94631C08241B00E882F6 /* icon-plus.png in Resources */,
 				E875EA371BF46482005EA5A7 /* first_normal.png in Resources */,
@@ -651,7 +634,6 @@
 				E8AD94571C08241B00E882F6 /* AwesomeMenu.m in Sources */,
 				E875EA161BF4627E005EA5A7 /* settingViewController.m in Sources */,
 				E875EA1B1BF46365005EA5A7 /* myInfoViewController.m in Sources */,
-				092F0F661A05C9CA007CDDCC /* UIColor+FlatColors.m in Sources */,
 				E875EA521BF47103005EA5A7 /* extendMothods.m in Sources */,
 				E8D110371BE35BD90021F0E5 /* IndexAndDirection.m in Sources */,
 				E875EA061BF46047005EA5A7 /* RDVTabBar.m in Sources */,

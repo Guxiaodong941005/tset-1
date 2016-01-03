@@ -8,7 +8,6 @@
 
 #import "mainViewController.h"
 #import "ZLSwipeableView.h"
-#import "UIColor+FlatColors.h"
 #import "CardView.h"
 #import "IndexAndDirection.h"
 #import "UIImageView+WebCache.h"
@@ -42,23 +41,7 @@ CardViewDelegate>
     [self getdata];
     
 }
--(void)getdata{
-    PhotoNetWork * t_photoNetWork = [PhotoNetWork netWork];
-    [t_photoNetWork getActiveDataFromUrlPath:@"http://52.32.62.9/%E9%A3%8E%E6%99%AF.json" and:^(BOOL isSuss, id response, AFNetworkReachabilityStatus netWorkStatus) {
-     
-        
-        NSDictionary * t_dict = (NSDictionary *)response;
-        
-        NSLog(@"%@",t_dict);
-        
-        for (NSDictionary * dict in [t_dict objectForKey:@"data"]) {
-            photo * g_photo = [photo setdataWithDict:dict];
-            [self.g_dataArray addObject:g_photo];
-        }
-        [self.swipeableView reloadData];
-    }];
 
-}
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:YES];
@@ -95,6 +78,18 @@ CardViewDelegate>
     
 }
 #pragma mark - NetWork
+-(void)getdata{
+    PhotoNetWork * t_photoNetWork = [PhotoNetWork netWork];
+    [t_photoNetWork getActiveDataFromUrlPath:@"http://52.32.62.9/%E9%A3%8E%E6%99%AF.json" and:^(BOOL isSuss, id response, AFNetworkReachabilityStatus netWorkStatus) {
+        NSDictionary * t_dict = (NSDictionary *)response;
+        for (NSDictionary * dict in [t_dict objectForKey:@"data"]) {
+            photo * g_photo = [photo setdataWithDict:dict];
+            [self.g_dataArray addObject:g_photo];
+        }
+        [self.swipeableView reloadData];
+    }];
+    
+}
 - (void)getDataFromNetWorkWithKind:(NSString *)t_kind{
     
     if ([t_kind isEqualToString:Lift]) {
