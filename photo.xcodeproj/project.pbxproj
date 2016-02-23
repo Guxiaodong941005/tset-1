@@ -13,7 +13,6 @@
 		092F0F3F1A05B474007CDDCC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 092F0F3E1A05B474007CDDCC /* Images.xcassets */; };
 		092F0F421A05B474007CDDCC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 092F0F401A05B474007CDDCC /* LaunchScreen.xib */; };
 		092F0F4E1A05B474007CDDCC /* photoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 092F0F4D1A05B474007CDDCC /* photoTests.m */; };
-		092F0F661A05C9CA007CDDCC /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 092F0F651A05C9CA007CDDCC /* UIColor+FlatColors.m */; };
 		D47659301EB33362C8DCC339 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D0E740702FEE385B822A83 /* libPods.a */; };
 		E82BA5971BE3116E0038F210 /* ZLPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E82BA5941BE3116E0038F210 /* ZLPanGestureRecognizer.m */; };
 		E82BA5981BE3116E0038F210 /* ZLSwipeableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E82BA5961BE3116E0038F210 /* ZLSwipeableView.m */; };
@@ -99,8 +98,6 @@
 		092F0F471A05B474007CDDCC /* photo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = photo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		092F0F4C1A05B474007CDDCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		092F0F4D1A05B474007CDDCC /* photoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = photoTests.m; sourceTree = "<group>"; };
-		092F0F641A05C9CA007CDDCC /* UIColor+FlatColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatColors.h"; sourceTree = "<group>"; };
-		092F0F651A05C9CA007CDDCC /* UIColor+FlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatColors.m"; sourceTree = "<group>"; };
 		D19F45E67933FFEFB43C138B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DCB1320BBF2BD7124DE04A4D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E82BA5931BE3116E0038F210 /* ZLPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLPanGestureRecognizer.h; sourceTree = "<group>"; };
@@ -233,7 +230,6 @@
 				E8F5F17F1BF0AF2A00449CB3 /* 屏幕快照 2015-11-05 11.40.43.png */,
 				E8D110341BE35BBF0021F0E5 /* Model */,
 				E82BA5921BE3116E0038F210 /* ZLSwipeableView */,
-				092F0F631A05C9CA007CDDCC /* UIColor+FlatColors */,
 				092F0F351A05B474007CDDCC /* AppDelegate.h */,
 				092F0F361A05B474007CDDCC /* AppDelegate.m */,
 				092F0F3B1A05B474007CDDCC /* Main.storyboard */,
@@ -268,15 +264,6 @@
 				092F0F4C1A05B474007CDDCC /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		092F0F631A05C9CA007CDDCC /* UIColor+FlatColors */ = {
-			isa = PBXGroup;
-			children = (
-				092F0F641A05C9CA007CDDCC /* UIColor+FlatColors.h */,
-				092F0F651A05C9CA007CDDCC /* UIColor+FlatColors.m */,
-			);
-			path = "UIColor+FlatColors";
 			sourceTree = "<group>";
 		};
 		4FCECF4902CB50CCC5F65044 /* Frameworks */ = {
@@ -648,7 +635,6 @@
 				E8AD94571C08241B00E882F6 /* AwesomeMenu.m in Sources */,
 				E875EA161BF4627E005EA5A7 /* settingViewController.m in Sources */,
 				E875EA1B1BF46365005EA5A7 /* myInfoViewController.m in Sources */,
-				092F0F661A05C9CA007CDDCC /* UIColor+FlatColors.m in Sources */,
 				E875EA521BF47103005EA5A7 /* extendMothods.m in Sources */,
 				E8D110371BE35BD90021F0E5 /* IndexAndDirection.m in Sources */,
 				E875EA061BF46047005EA5A7 /* RDVTabBar.m in Sources */,
