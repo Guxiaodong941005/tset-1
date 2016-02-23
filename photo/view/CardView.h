@@ -37,5 +37,4 @@
 @property (strong , nonatomic) ASImageNode * asHeadimageView;
 @property (strong , nonatomic) CALayer * placeHolderLayer;
 @property (strong , nonatomic) CardView * cardview;
--(CardView *)getCardViewFromdequeueReusableView;
 @end

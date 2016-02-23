@@ -9,9 +9,11 @@
 #import "myInfoViewController.h"
 #import "RDVTabBarController.h"
 #import "UIImageView+WebCache.h"
+typedef NSString * (^backstringblock)();
 @interface myInfoViewController ()
 
 @property (strong, nonatomic) IBOutlet UIImageView *imgview;
+
 @end
 
 @implementation myInfoViewController
@@ -23,11 +25,19 @@
     [self.imgview sd_setImageWithURL:[NSURL URLWithString:@"http://imgsrc.baidu.com/forum/w%3D580/sign=1cabbf10e8c4b7453494b71efffd1e78/79f40ad162d9f2d341d21dd6aaec8a136227ccc3.jpg"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
     }];
+    [self initWithString:^NSString *{
+        return @"123456";
+    }];
+    
 }
 - (void)viewWillAppear:(BOOL)animated{
     
 
     
+}
+- (void)initWithString:(backstringblock)backstring{
+    NSLog(@"%@",backstring);
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
